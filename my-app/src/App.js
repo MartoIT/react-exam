@@ -26,22 +26,20 @@ function App() {
         <Routes >
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/packages' element={<Packages />} />
+          <Route path='/featurenqmam' element={<Feature />} />
+          <Route path='/destination' element={<Destination />} />
+          <Route path='/teamPage' element={<TeamPage />} />
+          <Route path='/testimonial' element={<Testimonial />} />
+          <Route path='/booking' element={<Booking />} />
+          <Route path='/carouselnqmam' element={<Carousel />} />
+          <Route path='/blog' element={<Blog />} />
         </Routes>
 
       </main>
-
-      {/* <Carousel />
-      <Booking />
-      <HomePage />
       <Feature />
-      <Destination />
-      <Services />
-      <Packages />
-      <Registration />
-      <TeamPage />
-      <Testimonial  /> */}
-
-      <Blog />
+      
       <Footer />
 
 

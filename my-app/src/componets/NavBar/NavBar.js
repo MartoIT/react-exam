@@ -11,24 +11,24 @@ export const NavBar = () => {
                     </button>
                     <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                         <div className="navbar-nav ml-auto py-0">
-                            <a href="index.html" className="nav-item nav-link active">Home</a>
+                            <a href="/" className="nav-item nav-link active">Home</a>
                             <div class="nav-item dropdown">
                             <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">Services Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Services</a>
-                                <a href="single.html" class="dropdown-item">Tour Packages</a>
-                                <a href="destination.html" class="dropdown-item">Destination</a>
+                                <a href="/services" class="dropdown-item">Services</a>
+                                <a href="/packages" class="dropdown-item">Tour Packages</a>
+                                <a href="/destination" class="dropdown-item">Destination</a>
                             </div>
                             </div>
                             <a href="/registration" className="nav-item nav-link">Registration</a>
-                            <a href="about.html" className="nav-item nav-link">log in</a>
-                            <a href="about.html" className="nav-item nav-link">log out</a>
+                            <a href="/registration" className="nav-item nav-link">log in</a>
+                            <a href="/registration" className="nav-item nav-link">log out</a>
                             <div class="nav-item dropdown">
                             <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">About</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Our team</a>
-                                <a href="single.html" class="dropdown-item">Other about us</a>
-                                <a href="single.html" class="dropdown-item">Blog</a>
+                                <a href="/teamPage" class="dropdown-item">Our team</a>
+                                <a href="/testimonial" class="dropdown-item">Other about us</a>
+                                <a href="/blog" class="dropdown-item">Blog</a>
                                 <a href="destination.html" class="dropdown-item">About us</a>
                                 <a href="destination.html" class="dropdown-item">Contact</a>
                             </div>
