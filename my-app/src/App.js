@@ -7,6 +7,7 @@ import { HomePage } from "./componets/Home/HomePage";
 import { TopBar } from "./componets/TopBar/TopBar";
 import { Services } from "./componets/Services/Services";
 import { Packages } from "./componets/Packages/Packages";
+import { Registration } from "./componets/Registration/Registration";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Destination />
       <Services />
       <Packages />
+      <Registration />
 
       </>
    

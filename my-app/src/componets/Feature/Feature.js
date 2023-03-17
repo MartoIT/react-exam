@@ -5,7 +5,7 @@ export const Feature = () => {
             <div className="row">
                 <div className="col-md-4">
                     <div className="d-flex mb-4 mb-lg-0">
-                        <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style={{height: '100px', width: '100px'}}>
+                        <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style={{height: "100px", width: "100px"}}>
                             <i className="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div className="d-flex flex-column">
@@ -16,7 +16,7 @@ export const Feature = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="d-flex mb-4 mb-lg-0">
-                        <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style={{height: '100px', width: '100px'}}>
+                        <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style={{height: "100px", width: "100px"}}>
                             <i className="fa fa-2x fa-award text-white"></i>
                         </div>
                         <div className="d-flex flex-column">
@@ -27,7 +27,7 @@ export const Feature = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="d-flex mb-4 mb-lg-0">
-                        <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style={{height: '100px', width: '100px'}}>
+                        <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style={{height: "100px", width: "100px"}}>
                             <i className="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div className="d-flex flex-column">

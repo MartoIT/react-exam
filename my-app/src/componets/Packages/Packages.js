@@ -3,7 +3,7 @@ export const Packages = () => {
         <div className="container-fluid py-5">
         <div className="container pt-5 pb-3">
             <div className="text-center mb-3 pb-3">
-                <h6 className="text-primary text-uppercase" style={{letterSpacing: '5px'}}>Packages</h6>
+                <h6 className="text-primary text-uppercase" style={{letterSpacing: "5px"}}>Packages</h6>
                 <h1>Pefect Tour Packages</h1>
             </div>
             <div className="row">
@@ -35,7 +35,7 @@ export const Packages = () => {
                                 <small className="m-0"><i className="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                 <small className="m-0"><i className="fa fa-user text-primary mr-2"></i>2 Person</small>
                             </div>
-                            <a className="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                            <a className="h5 text-decoration-none" href="#/">Discover amazing places of the world with us</a>
                             <div className="border-top mt-4 pt-4">
                                 <div className="d-flex justify-content-between">
                                     <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -54,7 +54,7 @@ export const Packages = () => {
                                 <small className="m-0"><i className="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                 <small className="m-0"><i className="fa fa-user text-primary mr-2"></i>2 Person</small>
                             </div>
-                            <a className="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                            <a className="h5 text-decoration-none" href="#/">Discover amazing places of the world with us</a>
                             <div className="border-top mt-4 pt-4">
                                 <div className="d-flex justify-content-between">
                                     <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -73,7 +73,7 @@ export const Packages = () => {
                                 <small className="m-0"><i className="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                 <small className="m-0"><i className="fa fa-user text-primary mr-2"></i>2 Person</small>
                             </div>
-                            <a className="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                            <a className="h5 text-decoration-none" href="#/">Discover amazing places of the world with us</a>
                             <div className="border-top mt-4 pt-4">
                                 <div className="d-flex justify-content-between">
                                     <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -92,7 +92,7 @@ export const Packages = () => {
                                 <small className="m-0"><i className="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                 <small className="m-0"><i className="fa fa-user text-primary mr-2"></i>2 Person</small>
                             </div>
-                            <a className="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                            <a className="h5 text-decoration-none" href="#/">Discover amazing places of the world with us</a>
                             <div className="border-top mt-4 pt-4">
                                 <div className="d-flex justify-content-between">
                                     <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -111,7 +111,7 @@ export const Packages = () => {
                                 <small className="m-0"><i className="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                 <small className="m-0"><i className="fa fa-user text-primary mr-2"></i>2 Person</small>
                             </div>
-                            <a className="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                            <a className="h5 text-decoration-none" href="#/">Discover amazing places of the world with us</a>
                             <div className="border-top mt-4 pt-4">
                                 <div className="d-flex justify-content-between">
                                     <h6 className="m-0"><i className="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
