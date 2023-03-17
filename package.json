@@ -1,9 +1,5 @@
 {
   "dependencies": {
-    "jquery": "^3.6.4",
     "react-router-dom": "^6.9.0"
-  },
-  "devDependencies": {
-    "@types/jquery": "^3.5.16"
   }
 }
