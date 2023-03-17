@@ -12,6 +12,7 @@ import { Packages } from "./componets/Packages/Packages";
 import { Registration } from "./componets/Registration/Registration";
 import { TeamPage } from "./componets/TeamPage/TeamPage";
 import { Testimonial } from "./componets/Testimonial/Testimonial";
+import { Blog } from "./componets/Blog/Blog";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Registration />
       <TeamPage />
       <Testimonial  />
+      <Blog />
 
       </>
    
