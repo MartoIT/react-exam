@@ -13,6 +13,7 @@ import { Registration } from "./componets/Registration/Registration";
 import { TeamPage } from "./componets/TeamPage/TeamPage";
 import { Testimonial } from "./componets/Testimonial/Testimonial";
 import { Blog } from "./componets/Blog/Blog";
+import { Footer } from "./componets/Footer/Footer";
 
 function App() {
   return (
@@ -31,7 +32,9 @@ function App() {
       <TeamPage />
       <Testimonial  />
       <Blog />
+      <Footer />
 
+      
       </>
    
   );
