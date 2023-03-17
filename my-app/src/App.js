@@ -1,4 +1,4 @@
-
+import { Routes, Route } from 'react-router-dom';
 
 import { Booking } from "./componets/Booking/Booking";
 import { Carousel } from "./componets/Carousel/Carousel";
@@ -17,11 +17,20 @@ import { Footer } from "./componets/Footer/Footer";
 
 function App() {
   return (
-      <>
+    <>
 
       <TopBar />
       <NavBar />
-      <Carousel />
+      
+      <main id="main">
+        <Routes >
+          <Route path='/' element={<HomePage />} />
+          <Route path='/registration' element={<Registration />} />
+        </Routes>
+
+      </main>
+
+      {/* <Carousel />
       <Booking />
       <HomePage />
       <Feature />
@@ -30,13 +39,14 @@ function App() {
       <Packages />
       <Registration />
       <TeamPage />
-      <Testimonial  />
+      <Testimonial  /> */}
+
       <Blog />
       <Footer />
 
-      
-      </>
-   
+
+    </>
+
   );
 }
 
