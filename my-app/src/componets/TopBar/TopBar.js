@@ -12,19 +12,19 @@ export const TopBar = () => {
                 </div>
                 <div className="col-lg-6 text-center text-lg-right">
                     <div className="d-inline-flex align-items-center">
-                        <a className="text-primary px-3" href="#">
+                        <a className="text-primary px-3" href="#/">
                             <i className="fab fa-facebook-f"></i>
                         </a>
-                        <a className="text-primary px-3" href="#">
+                        <a className="text-primary px-3" href="#/">
                             <i className="fab fa-twitter"></i>
                         </a>
-                        <a className="text-primary px-3" href="#">
+                        <a className="text-primary px-3" href="#/">
                             <i className="fab fa-linkedin-in"></i>
                         </a>
-                        <a className="text-primary px-3" href="#">
+                        <a className="text-primary px-3" href="#/">
                             <i className="fab fa-instagram"></i>
                         </a>
-                        <a className="text-primary pl-3" href="#">
+                        <a className="text-primary pl-3" href="#/">
                             <i className="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -33,4 +33,4 @@ export const TopBar = () => {
         </div>
     </div>
     );
-}
+};
