@@ -40,7 +40,7 @@ function App() {
         </Routes>
 
       </main>
-      <Feature />
+      {/* <Feature /> */}
       
       <Footer />
 
