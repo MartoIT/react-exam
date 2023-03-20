@@ -29,7 +29,6 @@ export const NavBar = () => {
                                 <a href="/teamPage" class="dropdown-item">Our team</a>
                                 <a href="/testimonial" class="dropdown-item">Other about us</a>
                                 <a href="/blog" class="dropdown-item">Blog</a>
-                                <a href="destination.html" class="dropdown-item">About us</a>
                                 <a href="destination.html" class="dropdown-item">Contact</a>
                             </div>
                             </div>

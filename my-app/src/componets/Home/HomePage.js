@@ -21,7 +21,7 @@ export const HomePage = () => {
                                 <img className="img-fluid" src="img/about-2.jpg" alt="fluid"/>
                             </div>
                         </div>
-                        <a href="#/" className="btn btn-primary mt-1">Book Now</a>
+                        <a href="/destination" className="btn btn-primary mt-1">Book Now</a>
                     </div>
                 </div>
             </div>
