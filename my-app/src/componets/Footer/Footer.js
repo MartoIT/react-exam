@@ -17,33 +17,22 @@ export const Footer = () => {
                     <a className="btn btn-outline-primary btn-square" href="#/"><i className="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div className="col-lg-3 col-md-6 mb-5">
-                <h5 className="text-white text-uppercase mb-4" style={{letterSpacing: "5px"}}>Our Services</h5>
-                <div className="d-flex flex-column justify-content-start">
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>About</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Services</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Guides</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a className="text-white-50" href="#/"><i className="fa fa-angle-right mr-2"></i>Blog</a>
-                </div>
-            </div>
+            
             <div className="col-lg-3 col-md-6 mb-5">
                 <h5 className="text-white text-uppercase mb-4" style={{letterSpacing: "5px"}}>Usefull Links</h5>
                 <div className="d-flex flex-column justify-content-start">
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>About</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Services</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Guides</a>
-                    <a className="text-white-50 mb-2" href="#/"><i className="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a className="text-white-50" href="#/"><i className="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a className="text-white-50 mb-2" href="/"><i className="fa fa-angle-right mr-2"></i>Home</a>
+                    <a className="text-white-50 mb-2" href="/destination"><i className="fa fa-angle-right mr-2"></i>Destination</a>
+                    <a className="text-white-50 mb-2" href="/services"><i className="fa fa-angle-right mr-2"></i>Services</a>
+                    <a className="text-white-50 mb-2" href="/packages"><i className="fa fa-angle-right mr-2"></i>Packages</a>
+                    <a className="text-white-50 mb-2" href="/teamPage"><i className="fa fa-angle-right mr-2"></i>Team</a>
+                    <a className="text-white-50 mb-2" href="/testimonial"><i className="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a className="text-white-50" href="/blog"><i className="fa fa-angle-right mr-2"></i>Blog</a>
                 </div>
             </div>
             <div className="col-lg-3 col-md-6 mb-5">
                 <h5 className="text-white text-uppercase mb-4" style={{letterSpacing: "5px"}}>Contact Us</h5>
-                <p><i className="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                <p><i className="fa fa-map-marker-alt mr-2"></i>123 Street, Sofia, Bulgaria</p>
                 <p><i className="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i className="fa fa-envelope mr-2"></i>info@example.com</p>
                 <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: "5px"}}>Newsletter</h6>
