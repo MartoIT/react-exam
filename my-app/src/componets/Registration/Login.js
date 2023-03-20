@@ -21,6 +21,7 @@ export const Login = () => {
                                 <div>
                                     <button className="btn btn-primary btn-block py-3" type="submit">Login</button>
                                 </div>
+                                <p style={{margin: "10px"}}>Not a member yet? <a href="/registration"> Sign up now </a></p>
                             </form>
                         </div>
                     </div>

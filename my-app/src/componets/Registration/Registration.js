@@ -36,6 +36,7 @@ export const Registration = () => {
                                 <div>
                                     <button className="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
                                 </div>
+                                <p style={{margin: "10px"}}>Already have an account? <a href="/Login"> Log in</a></p>
                             </form>
                         </div>
                     </div>
