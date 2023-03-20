@@ -21,8 +21,8 @@ export const NavBar = () => {
                             </div>
                             </div>
                             <a href="/registration" className="nav-item nav-link">Registration</a>
-                            <a href="/registration" className="nav-item nav-link">log in</a>
-                            <a href="/registration" className="nav-item nav-link">log out</a>
+                            <a href="/login" className="nav-item nav-link">login</a>
+                            <a href="/registration" className="nav-item nav-link">logout</a>
                             <div class="nav-item dropdown">
                             <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">About</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">

@@ -14,6 +14,7 @@ import { TeamPage } from "./componets/TeamPage/TeamPage";
 import { Testimonial } from "./componets/Testimonial/Testimonial";
 import { Blog } from "./componets/Blog/Blog";
 import { Footer } from "./componets/Footer/Footer";
+import { Login } from './componets/Registration/Login';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Routes >
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/services' element={<Services />} />
           <Route path='/packages' element={<Packages />} />
           <Route path='/featurenqmam' element={<Feature />} />

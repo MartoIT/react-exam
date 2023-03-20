@@ -31,12 +31,7 @@ export const Registration = () => {
                                     <input type="email" className="form-control p-4" placeholder="Your email" required="required" />
                                 </div>
                                 <div className="form-group">
-                                    <select className="custom-select px-4" style={{height: "47px"}}>
-                                        <option value="default">Select a destination</option>
-                                        <option value="1">destination 1</option>
-                                        <option value="2">destination 1</option>
-                                        <option value="3">destination 1</option>
-                                    </select>
+                                <input type="password" className="form-control p-4" placeholder="Password" required="required" />
                                 </div>
                                 <div>
                                     <button className="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
