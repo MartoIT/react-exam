@@ -10,7 +10,7 @@ export const Packages = ({
                     <h1>Pefect Tour Packages</h1>
                 </div>
                 <div className="row">
-
+                    {console.log(packages)}
                     {packages.map(x =>
                         <Package key={x._id} {...x} />
                     )}

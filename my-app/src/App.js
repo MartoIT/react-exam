@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     packagesServices.getAll()
         .then(result => {
-          
+            
             setPackages(result)
         })
 }, []);
@@ -45,7 +45,7 @@ function App() {
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
           <Route path='/services' element={<Services />} />
-          <Route path='/packages' element={<Packages  packagess={packages} />} />
+          <Route path='/packages' element={<Packages  packages={packages} />} />
           <Route path='/featurenqmam' element={<Feature />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
