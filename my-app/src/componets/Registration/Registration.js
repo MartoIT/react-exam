@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Registration = () => {
     return (
         <div className="container-fluid bg-registration py-5" style={{ margin: '90px 0' }}>
@@ -46,7 +48,7 @@ export const Registration = () => {
                                     <div>
                                         <button className="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
                                     </div>
-                                    <p style={{ margin: "10px" }}>Already have an account? <a href="/Login"> Log in</a></p>
+                                    <p style={{ margin: "10px" }}>Already have an account? <Link to={"/Login"}>Log in</Link></p>
                                 </form>
                             </div>
                         </div>

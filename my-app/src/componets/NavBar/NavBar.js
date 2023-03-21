@@ -14,24 +14,24 @@ export const NavBar = () => {
                     <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                         <div className="navbar-nav ml-auto py-0">
                             <Link to={"/"} className="nav-item nav-link active">Home</Link>
-                            <div class="nav-item dropdown">
+                            <div className="nav-item dropdown">
                                 <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">Services Pages</a>
-                                <div class="dropdown-menu border-0 rounded-0 m-0">
-                                   <Link to={"/services"} class="dropdown-item">Services</Link> 
-                                   <Link to={"/packages"} class="dropdown-item">Packages</Link>
-                                   <Link to={"/destination"} class="dropdown-item">Destination</Link> 
+                                <div className="dropdown-menu border-0 rounded-0 m-0">
+                                   <Link to={"/services"} className="dropdown-item">Services</Link> 
+                                   <Link to={"/packages"} className="dropdown-item">Packages</Link>
+                                   <Link to={"/destination"} className="dropdown-item">Destination</Link> 
                                 </div>
                             </div>
                            <Link to={"/registration"} className="nav-item nav-link">Registration</Link> 
                            <Link to={"/login"} className="nav-item nav-link">login</Link>
                            <Link to={"/registration"} className="nav-item nav-link">logout</Link> 
-                            <div class="nav-item dropdown">
+                            <div className="nav-item dropdown">
                                 <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">About</a>
-                                <div class="dropdown-menu border-0 rounded-0 m-0">
-                                    <Link to={"/teamPage"} class="dropdown-item">Our team</Link>
-                                    <Link to={"/testimonial"} class="dropdown-item">Other about us</Link>
-                                    <Link to={"/blog"} class="dropdown-item">Blog</Link>
-                                    <a href="destination.html" class="dropdown-item">Contact</a>
+                                <div className="dropdown-menu border-0 rounded-0 m-0">
+                                    <Link to={"/teamPage"} className="dropdown-item">Our team</Link>
+                                    <Link to={"/testimonial"} className="dropdown-item">Other about us</Link>
+                                    <Link to={"/blog"} className="dropdown-item">Blog</Link>
+                                    <a href="destination.html" className="dropdown-item">Contact</a>
                                 </div>
                             </div>
                         </div>

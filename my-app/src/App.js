@@ -1,4 +1,7 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+import * as packagesServices from './services/packagesServices';
 
 import { Booking } from "./componets/Booking/Booking";
 import { Carousel } from "./componets/Carousel/Carousel";
@@ -16,20 +19,33 @@ import { Blog } from "./componets/Blog/Blog";
 import { Footer } from "./componets/Footer/Footer";
 import { Login } from './componets/Registration/Login';
 
+
 function App() {
+
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    packagesServices.getAll()
+        .then(result => {
+          
+            setPackages(result)
+        })
+}, []);
+
+
   return (
     <>
 
       <TopBar />
       <NavBar />
-      
+
       <main id="main">
         <Routes >
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
           <Route path='/services' element={<Services />} />
-          <Route path='/packages' element={<Packages />} />
+          <Route path='/packages' element={<Packages  packagess={packages} />} />
           <Route path='/featurenqmam' element={<Feature />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
@@ -40,7 +56,6 @@ function App() {
         </Routes>
 
       </main>
-      {/* <Feature /> */}
       
       <Footer />
 

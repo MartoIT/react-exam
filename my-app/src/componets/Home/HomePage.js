@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const HomePage = () => {
     return (
         <div className="container-fluid py-5">
@@ -21,7 +23,7 @@ export const HomePage = () => {
                                 <img className="img-fluid" src="img/about-2.jpg" alt="fluid"/>
                             </div>
                         </div>
-                        <a href="/destination" className="btn btn-primary mt-1">Book Now</a>
+                        <Link to={"/destination"} className="btn btn-primary mt-1">Book Now</Link>
                     </div>
                 </div>
             </div>
