@@ -23,6 +23,7 @@ import { Login } from './componets/Registration/Login';
 function App() {
 
   const [packages, setPackages] = useState([]);
+  const [services, setServices] = useState([]);
 
   useEffect(() => {
     packagesServices.getAll()
@@ -30,6 +31,14 @@ function App() {
             
             setPackages(result)
         })
+}, []);
+
+useEffect(() => {
+  packagesServices.getAllSer()
+      .then(result => {
+          
+          setServices(result)
+      })
 }, []);
 
 
@@ -44,9 +53,9 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/services' element={<Services />} />
+          <Route path='/services' element={<Services services={services}/>} />
           <Route path='/packages' element={<Packages  packages={packages} />} />
-          <Route path='/featurenqmam' element={<Feature />} />
+          <Route path='/featurenqmam' element={<Feature  />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
           <Route path='/testimonial' element={<Testimonial />} />
