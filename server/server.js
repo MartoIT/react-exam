@@ -1333,6 +1333,36 @@
         }
     };
     var seedData = {
+        
+        packages: {
+            "ff436770-76c5-40e2-b231-77409eda7a61": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Thailand",
+                "days": "10",
+                "persons": "2",
+                "imageUrl": "https://qph.cf2.quoracdn.net/main-qimg-961ddd1e7095c0f03bb9ebe15ae8d439-lq",
+                "summary": "Discover amazing places of the world with us!",
+                "_createdOn": 1617194128618,
+            },
+            "1840a313-225c-416a-817a-9954d4609f7c": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Zanzibar",
+                "days": "7",
+                "persons": "2",
+                "imageUrl": "https://idsb.tmgrup.com.tr/ly/uploads/images/2022/02/01/179292.jpg",
+                "summary": "Discover amazing places of the world with us!",
+                "_createdOn": 1617194128618,
+            },
+            "126777f5-3277-42ad-b874-76d043b069cb": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Costa Rica",
+                "days": "7",
+                "persons": "2",
+                "imageUrl": "https://www.yardbarker.com/media/c/1/c1e69f7b22225a154748a1fda8a24b1f097bd7e2/thumb_16x9/15-things-must-costa-rica.jpg?v=1",
+                "summary": "Discover amazing places of the world with us!",
+                "_createdOn": 1617194128618,
+            },
+        },
         games: {
             "ff436770-76c5-40e2-b231-77409eda7a61": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1366,6 +1396,7 @@
         
         }
     };
+    
     var rules$1 = {
         users: {
             ".create": false,
