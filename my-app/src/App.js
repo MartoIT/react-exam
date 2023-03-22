@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-
+import { AuthContext } from './context/authContext';
 
 import { Booking } from "./componets/Booking/Booking";
 import { Carousel } from "./componets/Carousel/Carousel";
@@ -22,6 +22,7 @@ import { offeredServcicesFactory } from './services/offeredServices';
 import { packagesServicessFactory } from './services/packagesServices';
 
 
+
 function App() {
 
   const [packages, setPackages] = useState([]);
@@ -35,19 +36,31 @@ function App() {
       .then(result => {
         setPackages(result)
       })
-  }, [packagesServices]);
+  }, []);
 
   useEffect(() => {
     offeredServices.getAll()
       .then(result => {
         setServices(result)
       })
-  }, [offeredServices]);
+  }, []);
+
+  const onLoginSubmit = async (data) => {
+    console.log(data)
+  };
+
+  const contextValues = {
+    onLoginSubmit,
+  }
+
 
 
   return (
-    <>
+   
+    <AuthContext.Provider value={contextValues} >
 
+    
+   
       <TopBar />
       <NavBar />
 
@@ -70,9 +83,8 @@ function App() {
       </main>
 
       <Footer />
-
-
-    </>
+      </AuthContext.Provider>
+     
 
   );
 }

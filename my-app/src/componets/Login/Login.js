@@ -1,13 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 export const Login = () => {
+    const {onLoginSubmit} = useContext(AuthContext)
 
     return (
-        <form id="login" method="POST" >
+        <section>
+        
         <div className="container-fluid bg-registration py-5 "  style={{margin: "90px 0", paddingLeft: "550px"}}>
         <div className="container py-5 ">
-            
-                
                 <div className="col-lg-5">
                     <div className="card border-0">
                         <div className="card-header bg-primary text-center p-4" >
@@ -17,10 +19,10 @@ export const Login = () => {
                             <form>
                                 
                                 <div className="form-group">
-                                    <input type="email" className="form-control p-4" placeholder="Your email" required="required" />
+                                    <input type="email" className="form-control p-4" placeholder="Your email" name="email" required="required" />
                                 </div>
                                 <div className="form-group">
-                                <input type="password" className="form-control p-4" placeholder="Password" required="required" />
+                                <input type="password" className="form-control p-4" placeholder="Password" name="password" required="required" />
                                 </div>
                                 <div>
                                     <button className="btn btn-primary btn-block py-3" type="submit">Login</button>
@@ -32,7 +34,8 @@ export const Login = () => {
                 </div>
             </div>
         </div>
-        </form>
+      
+        </section>
     
     );
 };
