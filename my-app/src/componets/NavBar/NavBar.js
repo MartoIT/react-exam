@@ -13,6 +13,8 @@ export const NavBar = () => {
                    <Link to={"/"} className="navbar-brand">
                         <h1 className="m-0 text-primary"><span className="text-dark">TRAVEL</span>ER</h1>
                     </Link>
+                    {isAuthenticated && (<span>Hello {userEmail}</span>)}
+                    
                     <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -21,6 +23,7 @@ export const NavBar = () => {
                         <div className="navbar-nav ml-auto py-0">
                             
                             <Link to={"/"} className="nav-item nav-link active">Home</Link>
+                        
                             <div className="nav-item dropdown">
                                 <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">Services Pages</a>
                                 <div className="dropdown-menu border-0 rounded-0 m-0">
