@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+
     return (
+        <form id="login" method="POST" >
         <div className="container-fluid bg-registration py-5 "  style={{margin: "90px 0", paddingLeft: "550px"}}>
         <div className="container py-5 ">
             
@@ -30,6 +32,7 @@ export const Login = () => {
                 </div>
             </div>
         </div>
+        </form>
     
     );
 };

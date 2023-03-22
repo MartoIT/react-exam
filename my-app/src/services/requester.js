@@ -27,7 +27,7 @@ const request = async (method, url, data) => {
 export const requestFactory = (token) => {
     return {
         get: request.bind(null, 'GET'),
-        pos:  request.bind(null, 'POST'),
+        post:  request.bind(null, 'POST'),
         put: request.bind(null, 'PUT'),
         patch: request.bind(null, 'PATCH'),
         del: request.bind(null, 'DELETE'),

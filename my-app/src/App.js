@@ -17,7 +17,7 @@ import { TeamPage } from "./componets/TeamPage/TeamPage";
 import { Testimonial } from "./componets/Testimonial/Testimonial";
 import { Blog } from "./componets/Blog/Blog";
 import { Footer } from "./componets/Footer/Footer";
-import { Login } from './componets/Registration/Login';
+import { Login } from './componets/Login/Login';
 import { offeredServcicesFactory } from './services/offeredServices';
 import { packagesServicessFactory } from './services/packagesServices';
 
