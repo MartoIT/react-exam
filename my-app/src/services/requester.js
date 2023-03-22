@@ -1,6 +1,6 @@
 const request = async (method, url, data) => {
     const options = {};
-    
+
     if (method !== 'GET') {
         options.method = method;
 
@@ -24,8 +24,14 @@ const request = async (method, url, data) => {
     }
 };
 
-export const get = request.bind(null, 'GET');
-export const post = request.bind(null, 'POST');
-export const put = request.bind(null, 'PUT');
-export const patch = request.bind(null, 'PATCH');
-export const del = request.bind(null, 'DELETE');
+export const requestFactory = (token) => {
+    return {
+        get: request.bind(null, 'GET'),
+        pos:  request.bind(null, 'POST'),
+        put: request.bind(null, 'PUT'),
+        patch: request.bind(null, 'PATCH'),
+        del: request.bind(null, 'DELETE'),
+    };
+};
+
+

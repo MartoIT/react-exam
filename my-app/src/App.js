@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import * as packagesServices from './services/packagesServices';
+
 
 import { Booking } from "./componets/Booking/Booking";
 import { Carousel } from "./componets/Carousel/Carousel";
@@ -18,28 +18,31 @@ import { Testimonial } from "./componets/Testimonial/Testimonial";
 import { Blog } from "./componets/Blog/Blog";
 import { Footer } from "./componets/Footer/Footer";
 import { Login } from './componets/Registration/Login';
+import { offeredServcicesFactory } from './services/offeredServices';
+import { packagesServicessFactory } from './services/packagesServices';
 
 
 function App() {
 
   const [packages, setPackages] = useState([]);
   const [services, setServices] = useState([]);
+  const packagesServices = packagesServicessFactory()
+  const offeredServices = offeredServcicesFactory();
+
 
   useEffect(() => {
     packagesServices.getAll()
-        .then(result => {
-            
-            setPackages(result)
-        })
-}, []);
-
-useEffect(() => {
-  packagesServices.getAllSer()
       .then(result => {
-          
-          setServices(result)
+        setPackages(result)
       })
-}, []);
+  }, [packagesServices]);
+
+  useEffect(() => {
+    offeredServices.getAll()
+      .then(result => {
+        setServices(result)
+      })
+  }, [offeredServices]);
 
 
   return (
@@ -53,9 +56,9 @@ useEffect(() => {
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/services' element={<Services services={services}/>} />
-          <Route path='/packages' element={<Packages  packages={packages} />} />
-          <Route path='/featurenqmam' element={<Feature  />} />
+          <Route path='/services' element={<Services services={services} />} />
+          <Route path='/packages' element={<Packages packages={packages} />} />
+          <Route path='/featurenqmam' element={<Feature />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
           <Route path='/testimonial' element={<Testimonial />} />
@@ -65,7 +68,7 @@ useEffect(() => {
         </Routes>
 
       </main>
-      
+
       <Footer />
 
 
