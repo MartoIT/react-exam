@@ -32,7 +32,7 @@ export const NavBar = () => {
                                    <Link to={"/destination"} className="dropdown-item">Destination</Link> 
                                 </div>
                             </div>
-                           <Link to={"/registration"} className="nav-item nav-link">logout</Link> 
+                           <Link to={"/logout"} className="nav-item nav-link">logout</Link> 
                             <div className="nav-item dropdown">
                                 <a href="#/" className="nav-link dropdown-toggle" data-toggle="dropdown">About</a>
                                 <div className="dropdown-menu border-0 rounded-0 m-0">

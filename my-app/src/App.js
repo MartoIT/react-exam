@@ -21,6 +21,7 @@ import { Login } from './componets/Login/Login';
 import { offeredServcicesFactory } from './services/offeredServices';
 import { packagesServicessFactory } from './services/packagesServices';
 import { authServicesFactory } from './services/authServices';
+import { Logout } from './componets/Logout/Logout';
 
 
 
@@ -74,13 +75,18 @@ function App() {
 
     navigate('/');
 
-
-
   };
+
+  const onLogout = async () => {
+     const result = await authService.logout();
+     setUserData('');
+     navigate('/');
+  }
 
   const contextValues = {
     onLoginSubmit,
     onRegisterSubmit,
+    onLogout,
     userId: userData._id,
     token: userData.accessToken,
     username: userData.username,
@@ -113,6 +119,7 @@ function App() {
           <Route path='/booking' element={<Booking />} />
           <Route path='/carouselnqmam' element={<Carousel />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/logout' element={<Logout />} />
         </Routes>
 
       </main>
