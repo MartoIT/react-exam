@@ -1,6 +1,26 @@
+import {  useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 export const Registration = () => {
+
+    const { onRegisterSubmit } = useContext(AuthContext)
+    const onSubmit = async (e) => {
+
+        e.preventDefault();
+
+        const data = {
+            username: e.target.username.value,
+            age: e.target.age.value,
+            imageUrl: e.target.imageUrl.value,
+            email: e.target.email.value,
+            password: e.target.password.value,
+            rePass: e.target.rePass.value,
+        };
+        onRegisterSubmit(data)
+
+    };
+
     return (
         <div className="container-fluid bg-registration py-5" style={{ margin: '90px 0' }}>
             <div className="container py-5">
@@ -25,25 +45,25 @@ export const Registration = () => {
                                 <h1 className="text-white m-0">Sign Up Now</h1>
                             </div>
                             <div className="card-body rounded-bottom bg-white p-5">
-                                <form>
+                                <form id="login" method="POST" onSubmit={onSubmit}>
                                     <div className="form-group">
-                                        <input type="text" className="form-control p-4" placeholder="Name" required="required" />
+                                        <input type="text" className="form-control p-4" placeholder="Name" name="username" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="age" className="form-control p-4" placeholder="Age" required="required" />
+                                        <input type="age" className="form-control p-4" placeholder="Age" name="age" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" className="form-control p-4" src="sdasda" alt="Submit" width="100" height="100" placeholder="Avatar link here..." />
+                                        <input type="text" className="form-control p-4" src="sdasda" alt="Submit" width="100" height="100" name="imageUrl" placeholder="Avatar link here..." />
                                         
                                     </div>
                                     <div className="form-group">
-                                        <input type="email" className="form-control p-4" placeholder="Email" required="required" />
+                                        <input type="email" className="form-control p-4" placeholder="Email" name="email" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" className="form-control p-4" placeholder="Password" required="required" />
+                                        <input type="password" className="form-control p-4" placeholder="Password" name="password" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" className="form-control p-4" placeholder="Repeat pass" required="required" />
+                                        <input type="password" className="form-control p-4" placeholder="Repeat pass" name="rePass" required="required" />
                                     </div>
                                     <div>
                                         <button className="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>

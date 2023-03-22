@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/authContext';
 
 export const NavBar = () => {
 
-    const { isAuthenticated, userEmail } = useContext(AuthContext);
+    const { isAuthenticated, username } = useContext(AuthContext);
 
     return (
         <div className="container-fluid position-relative nav-bar p-0">
@@ -13,7 +13,7 @@ export const NavBar = () => {
                    <Link to={"/"} className="navbar-brand">
                         <h1 className="m-0 text-primary"><span className="text-dark">TRAVEL</span>ER</h1>
                     </Link>
-                    {isAuthenticated && (<span>Hello {userEmail}</span>)}
+                    {isAuthenticated && (<span>Hello {username}</span>)}
                     
                     <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span className="navbar-toggler-icon"></span>

@@ -1,25 +1,25 @@
-import { authServicesFactory } from "../../services/authServices";
-import { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+
+import {  useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
 
 
 export const Login = () => {
-    const {onLoginSubmit}  = useContext(AuthContext)
+    const { onLoginSubmit } = useContext(AuthContext)
     const onSubmit = async (e) => {
 
         e.preventDefault();
-        const authService = authServicesFactory();
+
         const data = {
-          email: e.target.email.value,
-          password: e.target.password.value,
+            email: e.target.email.value,
+            password: e.target.password.value,
         };
         onLoginSubmit(data)
-       
-      };
 
-   
+    };
+
+
     return (
         <section>
 

@@ -62,11 +62,28 @@ function App() {
 
 
   };
+  const onRegisterSubmit = async (data) => {
+
+    const result = await authService.register(data);
+    console.log(result)
+    if (data.password !== data.rePass) {
+      alert(`Password doesn't match!`);
+      return;
+    }
+    setUserData(result)
+
+    navigate('/');
+
+
+
+  };
 
   const contextValues = {
     onLoginSubmit,
+    onRegisterSubmit,
     userId: userData._id,
     token: userData.accessToken,
+    username: userData.username,
     userEmail: userData.email,
     isAuthenticated: !!userData.accessToken,
   }
