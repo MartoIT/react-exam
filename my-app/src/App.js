@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from './context/authContext';
 
@@ -20,15 +20,18 @@ import { Footer } from "./componets/Footer/Footer";
 import { Login } from './componets/Login/Login';
 import { offeredServcicesFactory } from './services/offeredServices';
 import { packagesServicessFactory } from './services/packagesServices';
+import { authServicesFactory } from './services/authServices';
 
 
 
 function App() {
-
+  const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [services, setServices] = useState([]);
+  const [userData, setUserData] = useState('');
   const packagesServices = packagesServicessFactory()
   const offeredServices = offeredServcicesFactory();
+  const authService = authServicesFactory()
 
 
   useEffect(() => {
@@ -46,21 +49,36 @@ function App() {
   }, []);
 
   const onLoginSubmit = async (data) => {
-    console.log(data)
+
+    const result = await authService.login(data);
+    if (!result._id) {
+      alert(result.message);
+      return;
+    }
+    setUserData(result)
+
+    navigate('/');
+
+
+
   };
 
   const contextValues = {
     onLoginSubmit,
+    userId: userData._id,
+    token: userData.accessToken,
+    userEmail: userData.email,
+    isAuthenticated: !!userData.accessToken,
   }
 
 
 
   return (
-   
+
     <AuthContext.Provider value={contextValues} >
 
-    
-   
+
+
       <TopBar />
       <NavBar />
 
@@ -83,8 +101,8 @@ function App() {
       </main>
 
       <Footer />
-      </AuthContext.Provider>
-     
+    </AuthContext.Provider>
+
 
   );
 }
