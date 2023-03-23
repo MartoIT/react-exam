@@ -23,6 +23,7 @@ import { packagesServicessFactory } from './services/packagesServices';
 import { authServicesFactory } from './services/authServices';
 import { Logout } from './componets/Logout/Logout';
 import { Post } from './componets/Blog/Post';
+import { articlesServcicesFactory } from './services/articlesServices';
 
 
 
@@ -30,9 +31,11 @@ function App() {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [services, setServices] = useState([]);
+  const [article, setArticle] = useState([]);
   const [userData, setUserData] = useState('');
   const packagesServices = packagesServicessFactory()
   const offeredServices = offeredServcicesFactory();
+  const articleServices = articlesServcicesFactory()
   const authService = authServicesFactory()
 
 
@@ -49,6 +52,14 @@ function App() {
         setServices(result)
       })
   }, []);
+
+  useEffect(() => {
+    articleServices.getAll()
+      .then(result => {
+        setArticle(result)
+      })
+  }, []);
+
 
   const onLoginSubmit = async (data) => {
 
@@ -119,7 +130,7 @@ function App() {
           <Route path='/testimonial' element={<Testimonial />} />
           <Route path='/booking' element={<Booking />} />
           <Route path='/carouselnqmam' element={<Carousel />} />
-          <Route path='/blog' element={<Blog />} />
+          <Route path='/blog' element={<Blog article={article}/>} />
           <Route path='/post' element={<Post />} />
           <Route path='/logout' element={<Logout />} />
         </Routes>

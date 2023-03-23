@@ -2,11 +2,6 @@
 
 export const Post =  () => {
 
-
-    //form  { display: table;      }
-// p     { display: table-row;  }
-// label { display: table-cell; }
-// input { display: table-cell; }
     return (
         <section >
             <form  method="post" style={{ margin: "90px 0", paddingLeft: "550px", display: "yable-row" }}>

@@ -1383,6 +1383,27 @@
             },
 
         },
+        articles: {
+            "ff436770-76c5-40e2-b231-77409eda7a61": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Halkidiki",
+                "days": "7",
+                "budget": "1700",
+                "imageUrl": "https://www.urlaubstracker.de/wp-content/uploads/2018/01/griechenland-chalkidiki-robinson.jpg",
+                "story": "Halkidiki is a region in northern Greece known for its jutting peninsulas, which feature Mediterranean forests that give way to sandy beaches in sheltered bays. Kassandra, the westernmost peninsula, is the most developed, offering modern resorts and nightclubs.",
+                "_createdOn": 1617194128618,
+            },
+            "1840a313-225c-416a-817a-9954d4609f7c": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Dubrovnik",
+                "days": "5",
+                "budget": "800",
+                "imageUrl": "https://orientexpresstour.com/wp-content/uploads/2017/02/dobrovnik-1.jpg",
+                "story": "Dubrovnik is a city in southern Croatia fronting the Adriatic Sea. It's known for its distinctive Old Town, encircled with massive stone walls completed in the 16th century. Its well-preserved buildings range from baroque St. Blaise Church to Renaissance Sponza",
+                "_createdOn": 1617194128618,
+            },
+
+        },
         games: {
             "ff436770-76c5-40e2-b231-77409eda7a61": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
