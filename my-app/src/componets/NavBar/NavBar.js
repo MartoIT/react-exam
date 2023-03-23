@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/authContext';
 export const NavBar = () => {
 
     const { isAuthenticated, username } = useContext(AuthContext);
-
+   
     return (
         <div className="container-fluid position-relative nav-bar p-0">
             <div className="container-lg position-relative p-0 px-lg-3" style={{ zIndex: "9" }} >

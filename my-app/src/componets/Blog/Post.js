@@ -1,9 +1,12 @@
 import {  useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
-export const Post =  () => {
+export const Post =  ({
+    onPostSubmit,
+}) => {
+    
+    const {  token } = useContext(AuthContext)
 
-    const { onPostSubmit } = useContext(AuthContext)
     const onSubmit = async (e) => {
 
         e.preventDefault();
@@ -16,7 +19,7 @@ export const Post =  () => {
             story: e.target.story.value,
             
         };
-        onPostSubmit(data)
+        onPostSubmit(data, token)
 
     };
 

@@ -1402,7 +1402,7 @@
                 "username": "Martin",
                 "imageUrl": "https://orientexpresstour.com/wp-content/uploads/2017/02/dobrovnik-1.jpg",
                 "story": "Dubrovnik is a city in southern Croatia fronting the Adriatic Sea. It's known for its distinctive Old Town, encircled with massive stone walls completed in the 16th century. Its well-preserved buildings range from baroque St. Blaise Church to Renaissance Sponza",
-                "_createdOn": 1617194128618,
+                "_createdOn": 1617194128615,
             },
 
         },

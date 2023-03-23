@@ -14,9 +14,9 @@ export const articlesServcicesFactory = () => {
         return packages;
     };
 
-    const addNewPost = async () => {
+    const addNewPost = async (data, token) => {
    
-        const response = await request.post(`${baseUrl}`);
+        const response = await request.post(`${baseUrl}`, data, token);
         const articles = Object.values(response);
         
         return articles;

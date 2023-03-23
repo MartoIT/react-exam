@@ -69,7 +69,7 @@ function App() {
       return;
     }
     setUserData(result)
-
+    
     navigate('/');
 
 
@@ -95,11 +95,10 @@ function App() {
      navigate('/');
   }
 
-  const onPostSubmit = async (data) => {
-    const result = await articleServices.addNewPost(data);
-    console.log(result)
-    setArticle(result)
-
+  const onPostSubmit = async (data, token) => {
+    const newArticle = await articleServices.addNewPost(data, token);
+    
+  
     navigate('/blog');
 
   }
@@ -141,7 +140,7 @@ function App() {
           <Route path='/booking' element={<Booking />} />
           <Route path='/carouselnqmam' element={<Carousel />} />
           <Route path='/blog' element={<Blog article={article}/>} />
-          <Route path='/post' element={<Post />} />
+          <Route path='/post' element={<Post onPostSubmit={onPostSubmit}/>} />
           <Route path='/logout' element={<Logout />} />
         </Routes>
 
