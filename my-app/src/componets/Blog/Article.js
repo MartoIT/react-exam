@@ -3,6 +3,7 @@ export const Article = ({
     days,
     budget,
     imageUrl,
+    username,
     _ownerId
 }) => {
     return (
@@ -17,7 +18,7 @@ export const Article = ({
             </div>
             <div className="bg-white p-4">
                 <div className="d-flex mb-2">
-                    <a className="text-primary text-uppercase text-decoration-none" href="#/">{_ownerId}</a>
+                    <a className="text-primary text-uppercase text-decoration-none" href="#/">{username}</a>
                     <span className="text-primary px-2">|</span>
                     <a className="text-primary text-uppercase text-decoration-none" href="#/">Tours & Travel</a>
                 </div>

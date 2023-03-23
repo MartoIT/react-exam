@@ -78,7 +78,7 @@ function App() {
   const onRegisterSubmit = async (data) => {
 
     const result = await authService.register(data);
-    console.log(result)
+    
     if (data.password !== data.rePass) {
       alert(`Password doesn't match!`);
       return;
@@ -95,10 +95,20 @@ function App() {
      navigate('/');
   }
 
+  const onPostSubmit = async (data) => {
+    const result = await articleServices.addNewPost(data);
+    console.log(result)
+    setArticle(result)
+
+    navigate('/blog');
+
+  }
+
   const contextValues = {
     onLoginSubmit,
     onRegisterSubmit,
     onLogout,
+    onPostSubmit,
     userId: userData._id,
     token: userData.accessToken,
     username: userData.username,

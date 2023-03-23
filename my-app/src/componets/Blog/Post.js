@@ -1,10 +1,28 @@
-
+import {  useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 export const Post =  () => {
 
+    const { onPostSubmit } = useContext(AuthContext)
+    const onSubmit = async (e) => {
+
+        e.preventDefault();
+
+        const data = {
+            title: e.target.title.value,
+            days: e.target.days.value,
+            budget: e.target.budget.value,
+            imageUrl: e.target.imageUrl.value,
+            story: e.target.story.value,
+            
+        };
+        onPostSubmit(data)
+
+    };
+
     return (
         <section >
-            <form  method="post" style={{ margin: "90px 0", paddingLeft: "550px", display: "yable-row" }}>
+            <form  method="post" style={{ margin: "90px 0", paddingLeft: "550px", display: "yable-row" }} onSubmit={onSubmit}>
                 <div className="edit-page" >
 
                     <h1>New Blog Post Entry</h1>
@@ -55,7 +73,7 @@ export const Post =  () => {
                     <p></p>
                     <label htmlFor="summary" className="color" >Post here:</label>
                     <textarea name="summary" id="summary" className="textarea"></textarea>
-                    <input className="btn btn-primary btn-block py-3 mybtn" type="submit" value="Send" />
+                    <input className="btn btn-primary btn-block py-3 mybtn" type="submit" name="story" value="Send story" />
 
                 </div>
             </form>

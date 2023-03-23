@@ -14,7 +14,7 @@ export const Blog = ({
                     </div>
                     <div className="row pb-3">
                         
-                {article.map(a => <Article  key={a._id} {...a} />)}
+                {article.map(a => <Article  key={a.imageUrl} {...a} />)}
                     </div>
                 
                 </div>
