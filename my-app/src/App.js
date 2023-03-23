@@ -22,6 +22,7 @@ import { offeredServcicesFactory } from './services/offeredServices';
 import { packagesServicessFactory } from './services/packagesServices';
 import { authServicesFactory } from './services/authServices';
 import { Logout } from './componets/Logout/Logout';
+import { Post } from './componets/Blog/Post';
 
 
 
@@ -119,6 +120,7 @@ function App() {
           <Route path='/booking' element={<Booking />} />
           <Route path='/carouselnqmam' element={<Carousel />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/post' element={<Post />} />
           <Route path='/logout' element={<Logout />} />
         </Routes>
 
