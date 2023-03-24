@@ -28,7 +28,6 @@ export const Post = ({
     const onSubmit = async (e) => {
 
         e.preventDefault();
-        console.log(form)
         onPostSubmit(form, token)
 
     };
@@ -45,7 +44,8 @@ export const Post = ({
                         id="title"
                         name="title"
                         className="input"
-                        style={{ display: "table-cell" }}
+                        style={{ display: "table-cell"  }}
+
                         value={form.title}
                         onChange={handleChange}
 

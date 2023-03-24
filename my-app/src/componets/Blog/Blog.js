@@ -14,9 +14,9 @@ export const Blog = ({
                     <h1>Tell us about your best vacation</h1><h2 ><Link to={"/post"}>Click here</Link></h2>
                 </div>
                 <div className="row pb-3">
-                    <Suspense >
+                   
                         {article.map(a => <Article key={Math.random()} {...a} />)}
-                    </Suspense>
+                    
                 </div>
 
             </div>

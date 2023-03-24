@@ -3391,11 +3391,11 @@ input[type="button"].btn-block {
   display: flex;
 }
 
-.input-group-prepend .btn,
+/* .input-group-prepend .btn,
 .input-group-append .btn {
   position: relative;
   z-index: 2;
-}
+} */
 
 .input-group-prepend .btn:focus,
 .input-group-append .btn:focus {
@@ -9792,6 +9792,7 @@ h6,
     font-size: 24px;
     border-radius: 8px;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+    
 }
 
 

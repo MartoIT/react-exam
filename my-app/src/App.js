@@ -24,6 +24,7 @@ import { authServicesFactory } from './services/authServices';
 import { Logout } from './componets/Logout/Logout';
 import { Post } from './componets/Blog/Post';
 import { articlesServcicesFactory } from './services/articlesServices';
+import { DetailsArticle } from './componets/Blog/DetailsArticle';
 
 
 
@@ -91,14 +92,18 @@ function App() {
 
   const onLogout = async () => {
      const result = await authService.logout();
+
      setUserData('');
      navigate('/');
   }
 
   const onPostSubmit = async (data, token) => {
     const newArticle = await articleServices.addNewPost(data, token);
+    articleServices.getAll()
+      .then(result => {
+        setArticle(result)
+      })
     
-  
     navigate('/blog');
 
   }
@@ -142,6 +147,7 @@ function App() {
           <Route path='/blog' element={<Blog article={article}/>} />
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit}/>} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/details' element={<DetailsArticle />} />
         </Routes>
 
       </main>
