@@ -26,14 +26,15 @@ export const DetailsArticle = () => {
 
     const onDeleteClick = async () => {
         const id = article._id;
-       const result=  await articleService.delete(id, token);
-       
+        const result = await articleService.delete(id, token);
+
+      
         // TODO: delete from state
 
         navigate('/blog');
     };
 
-    
+
     return (
         <>
 
@@ -45,7 +46,7 @@ export const DetailsArticle = () => {
                             paddingRight: "0.9375rem", float: "left"
                         }} >
                             <article>
-                                <h1 style={{color: "#34ce57"}}>{article.title}</h1>
+                                <h1 style={{ color: "#34ce57" }}>{article.title}</h1>
                                 <p className="article_pub-date" style={{ color: "#949494" }}>Published
                                     <time > {formatDate(article._createdOn)}</time>
                                 </p>
@@ -65,41 +66,41 @@ export const DetailsArticle = () => {
                         </div>
                     </div>
                     <div style={{
-                            position: "relative", paddingLeft: "0.5rem",
-                            paddingRight: "0.5rem", 
-                        }}>
-                           
-                             {isOwner && (
-                                 <div>
-                            <button className="mybtn color">Edit</button>
-                            <button className="mybtn color" onClick={onDeleteClick}>Delete</button>
+                        position: "relative", paddingLeft: "0.5rem",
+                        paddingRight: "0.5rem",
+                    }}>
+
+                        {isOwner && (
+                            <div>
+                                <button className="mybtn color">Edit</button>
+                                <button className="mybtn color" onClick={onDeleteClick}>Delete</button>
                             </div>
-                             )}
-                            <button className="mybtn color">Load comments</button>
-                            
+                        )}
+                        <button className="mybtn color">Load comments</button>
+
                     </div>
                 </section>
                 <p></p>
                 <p></p>
                 <div >
                     <div className="col-lg-5">
-                            <div className="card-body rounded-bottom bg-white p-5" >
-                                <form>
-                                    <div className="form-group">
-                                        <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
-                                    </div>
-                                    <div>
-                                        <button className="btn btn-primary btn-block py-3" type="submit">Send</button>
-                                    </div>
+                        <div className="card-body rounded-bottom bg-white p-5" >
+                            <form>
+                                <div className="form-group">
+                                    <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
+                                </div>
+                                <div>
+                                    <button className="btn btn-primary btn-block py-3" type="submit">Send</button>
+                                </div>
 
-                                </form>
+                            </form>
 
-                            </div>
                         </div>
                     </div>
-
                 </div>
-            
+
+            </div>
+
         </>
 
     );
