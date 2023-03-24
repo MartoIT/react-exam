@@ -10,10 +10,17 @@ const request = async (method, url, data, token) => {
             };
 
             options.body = JSON.stringify(data);
+            
         }
     }
-
+    if (method === 'DELETE') {
+        options.headers = {
+            ...options.headers,
+            'X-Authorization': data,
+        };
+    }
     if (token) {
+        
         options.headers = {
             ...options.headers,
             'X-Authorization': token,

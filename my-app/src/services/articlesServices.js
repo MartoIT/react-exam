@@ -21,10 +21,24 @@ export const articlesServcicesFactory = () => {
         
         return articles;
     };
+    const getOne = async (articleId) => {
+        const result = await request.get(`${baseUrl}/${articleId}`);
+    
+        return result;
+    };
+
+    const deleteArticle = async (articleId, token) => {
+        //console.log(token)
+        const result = await request.del(`${baseUrl}/${articleId}`, token);
+        console.log(result)
+        return result;
+    }
 
     return {
         getAll,
-        addNewPost
+        addNewPost,
+        getOne,
+        delete: deleteArticle,
     }
 }
  

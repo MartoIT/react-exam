@@ -6,6 +6,7 @@ export const Article = ({
     budget,
     imageUrl,
     username,
+    _id,
     _ownerId
 }) => {
     return (
@@ -26,7 +27,7 @@ export const Article = ({
                     </div>
                     <a className="h5 m-0 text-decoration-none" href="#/"><p>Place - {title}</p>  <p>Days - {days}</p> <p>Budget - {budget}</p> </a>
                     <div>
-                        <Link to="/details">
+                        <Link to={`/details/${_id}`}>
                             <button className="mybtn color">Read more..</button>
                         </Link>
                     </div>

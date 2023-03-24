@@ -91,14 +91,14 @@ function App() {
   };
 
   const onLogout = async () => {
-     const result = await authService.logout();
+      await authService.logout();
 
      setUserData('');
      navigate('/');
   }
 
   const onPostSubmit = async (data, token) => {
-    const newArticle = await articleServices.addNewPost(data, token);
+    await articleServices.addNewPost(data, token);
     articleServices.getAll()
       .then(result => {
         setArticle(result)
@@ -147,7 +147,7 @@ function App() {
           <Route path='/blog' element={<Blog article={article}/>} />
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit}/>} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/details' element={<DetailsArticle />} />
+          <Route path='/details/:articleId' element={<DetailsArticle />} />
         </Routes>
 
       </main>
