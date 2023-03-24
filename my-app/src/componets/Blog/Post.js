@@ -1,82 +1,100 @@
-import {  useContext } from "react";
+import * as React from 'react';
+import { useContext } from 'react';
+
 import { AuthContext } from "../../context/authContext";
 
-export const Post =  ({
+export const Post = ({
     onPostSubmit,
 }) => {
-    
-    const {  token } = useContext(AuthContext)
+
+    const { token, username } = useContext(AuthContext)
+
+    const [form, setForm] = React.useState({
+        title: '',
+        days: '',
+        budget: '',
+        imageUrl: '',
+        story: '',
+        username
+    });
+
+    const handleChange = (event) => {
+        setForm({
+            ...form,
+            [event.target.id]: event.target.value,
+        });
+    };
 
     const onSubmit = async (e) => {
 
         e.preventDefault();
-
-        const data = {
-            title: e.target.title.value,
-            days: e.target.days.value,
-            budget: e.target.budget.value,
-            imageUrl: e.target.imageUrl.value,
-            story: e.target.story.value,
-            
-        };
-        onPostSubmit(data, token)
+        console.log(form)
+        onPostSubmit(form, token)
 
     };
 
     return (
         <section >
-            <form  method="post" style={{ margin: "90px 0", paddingLeft: "550px", display: "yable-row" }} onSubmit={onSubmit}>
+            <form method="post" style={{ margin: "90px 0", paddingLeft: "550px", display: "yable-row" }} onSubmit={onSubmit}>
                 <div className="edit-page" >
 
                     <h1>New Blog Post Entry</h1>
-                    <label htmlFor="leg-title" className="color" style={{ display: "table-cell" }}>Title:</label>
+                    <label htmlFor="title" className="color" style={{ display: "table-cell" }}>Title:</label>
                     <input
                         type="text"
                         id="title"
                         name="title"
                         className="input"
                         style={{ display: "table-cell" }}
-                    //value={values.title}
-                    //onChange={changeHandler}
+                        value={form.title}
+                        onChange={handleChange}
+
                     />
 
-                    <label htmlFor="category" className="color" style={{ display: "table-cell" }}>Days:</label>
+                    <label htmlFor="days" className="color" style={{ display: "table-cell" }}>Days:</label>
                     <input
                         type="text"
                         id="days"
                         name="days"
                         className="input"
                         style={{ display: "table-cell" }}
-                    // value={values.category}
-                    // onChange={changeHandler}
+                        value={form.days}
+                        onChange={handleChange}
+
                     />
 
-                    <label htmlFor="levels" className="color"style={{ display: "table-cell" }}>Budget:</label>
+                    <label htmlFor="budget" className="color" style={{ display: "table-cell" }}>Budget:</label>
                     <input
                         type="text"
                         id="budget"
                         name="budget"
                         className="input"
                         style={{ display: "table-cell" }}
-                    //min="1"
-                    // value={values.maxLevel}
-                    // onChange={changeHandler}
+                        value={form.budget}
+                        onChange={handleChange}
+
                     />
 
-                    <label htmlFor="game-img" className="color"style={{ display: "table-cell" }}>Image:</label>
+                    <label htmlFor="img" className="color" style={{ display: "table-cell" }}>Image:</label>
                     <input
                         type="text"
                         id="imageUrl"
                         name="imageUrl"
                         className="input"
                         style={{ display: "table-cell" }}
-                    // value={values.imageUrl}
-                    // onChange={changeHandler}
+                        value={form.imageUrl}
+                        onChange={handleChange}
+
                     />
                     <p></p>
                     <label htmlFor="summary" className="color" >Post here:</label>
-                    <textarea name="summary" id="summary" className="textarea"></textarea>
-                    <input className="btn btn-primary btn-block py-3 mybtn" type="submit" name="story" value="Send story" />
+                    <textarea type="text"
+                        id="story"
+                        name="story"
+                        className="textarea"
+                        value={form.story}
+                        onChange={handleChange} ></textarea>
+                    <input className="btn btn-primary btn-block py-3 mybtn" type="submit" value="Send story" />
 
                 </div>
             </form>

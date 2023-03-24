@@ -18,11 +18,12 @@ export const Article = ({
             </div>
             <div className="bg-white p-4">
                 <div className="d-flex mb-2">
-                    <a className="text-primary text-uppercase text-decoration-none" href="#/">{username}</a>
+                <a className="text-primary text-uppercase text-decoration-none" href="#/">Article owner</a>
                     <span className="text-primary px-2">|</span>
-                    <a className="text-primary text-uppercase text-decoration-none" href="#/">Tours & Travel</a>
+                    <a className="text-primary text-uppercase text-decoration-none" href="#/">{username}</a>
                 </div>
-                <a className="h5 m-0 text-decoration-none" href="#/"><p>{title}</p>  <p>Days {days}</p> <p>Budget {budget}</p> </a>
+                <a className="h5 m-0 text-decoration-none" href="#/"><p>Place - {title}</p>  <p>Days - {days}</p> <p>Budget - {budget}</p> </a>
+                <button className="mybtn color">Read more..</button>
             </div>
         </div>
     </div>
