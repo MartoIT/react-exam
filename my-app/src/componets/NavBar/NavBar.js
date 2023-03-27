@@ -54,12 +54,6 @@ export const NavBar = () => {
                                 <Link to={"/blog"} className="nav-item nav-link">Blog</Link>
                                 <Link to={"/registration"} className="nav-item nav-link">Registration</Link>
                                 <Link to={"/login"} className="nav-item nav-link">login</Link>
-
-                                {/* <Link to={"/teamPage"} className="nav-item nav-link">Our team</Link>
-                                <Link to={"/testimonial"} className="nav-item nav-link">Other about us</Link> */}
-                                
-
-
                             </div>
                         </div>
                     )}

@@ -4,9 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthContext } from './context/authContext';
 
 import { Booking } from "./componets/Booking/Booking";
-import { Carousel } from "./componets/Carousel/Carousel";
 import { Destination } from "./componets/Destination/Destination";
-import { Feature } from "./componets/Feature/Feature";
 import { NavBar } from "./componets/NavBar/NavBar";
 import { HomePage } from "./componets/Home/HomePage";
 import { TopBar } from "./componets/TopBar/TopBar";
@@ -25,6 +23,7 @@ import { Logout } from './componets/Logout/Logout';
 import { Post } from './componets/Blog/Post';
 import { articlesServcicesFactory } from './services/articlesServices';
 import { DetailsArticle } from './componets/Blog/DetailsArticle';
+import { EditPost } from './componets/Blog/EditPost';
 
 
 
@@ -108,9 +107,21 @@ function App() {
 
   }
 
+
   const onDeleteClick = async (id, token) => {
 
     const result = await articleServices.delete(id, token);
+    articleServices.getAll()
+      .then(result => {
+        setArticle(result)
+      })
+
+
+    navigate('/blog');
+  };
+  const onEditClick = async (id, data, token) => {
+   
+    const result = await articleServices.edit(id, data, token)
     articleServices.getAll()
       .then(result => {
         setArticle(result)
@@ -152,16 +163,15 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/services' element={<Services services={services} />} />
           <Route path='/packages' element={<Packages packages={packages} />} />
-          <Route path='/featurenqmam' element={<Feature />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
           <Route path='/testimonial' element={<Testimonial />} />
           <Route path='/booking' element={<Booking />} />
-          <Route path='/carouselnqmam' element={<Carousel />} />
           <Route path='/blog' element={<Blog article={article} />} />
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} />} />
+          <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick}/>} />
         </Routes>
 
       </main>

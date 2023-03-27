@@ -1,19 +1,19 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 
 
 import { articlesServcicesFactory } from '../../services/articlesServices';
 import { AuthContext } from '../../context/authContext';
 import { formatDate } from './formData';
-export const DetailsArticle = ({onDeleteClick,}) => {
+export const DetailsArticle = ({ onDeleteClick, }) => {
 
     const { userId, token, isAuthenticated } = useContext(AuthContext);
     const articleService = articlesServcicesFactory()
-
+    const navigate = useNavigate();
     const { articleId } = useParams();
     const [article, setArticle] = useState({});
-    
+
     const isOwner = article._ownerId === userId;
 
     useEffect(() => {
@@ -23,8 +23,8 @@ export const DetailsArticle = ({onDeleteClick,}) => {
             })
     }, [articleId]);
 
-    
-    const onSubmit = async (e) => {
+
+    const onDelete = async (e) => {
 
         e.preventDefault();
         const id = article._id;
@@ -32,7 +32,6 @@ export const DetailsArticle = ({onDeleteClick,}) => {
 
     };
 
-   
 
     return (
         <>
@@ -68,20 +67,26 @@ export const DetailsArticle = ({onDeleteClick,}) => {
                         position: "relative", paddingLeft: "0.5rem",
                         paddingRight: "0.5rem",
                     }}>
+                        <section>
+                            <button className="mybtn color" onClick={() => navigate(-1)} >Back</button>
+                            {isOwner && (
+                                <div>
+                                    <div>
+                                        <Link to={`/details/${article._id}/edit`}>
+                                        <button className="mybtn color" >Edit</button>
+                                        </Link>
+                                    </div>
+                                    <button className="mybtn color" onClick={onDelete}>Delete</button>
+                                </div>
+                            )}
+                        </section>
 
-                        {isOwner && (
-                            <div>
-                                <button className="mybtn color">Edit</button>
-                                <button className="mybtn color" onClick={onSubmit}>Delete</button>
-                            </div>
-                        )}
-                        
 
                     </div>
                 </section>
                 <p></p>
                 <p></p>
-                {isAuthenticated && ( <div >
+                {isAuthenticated && (<div >
                     <div className="col-lg-5">
                         <div className="card-body rounded-bottom bg-white p-5" >
                             <form>
@@ -103,7 +108,7 @@ export const DetailsArticle = ({onDeleteClick,}) => {
                         <p style={{ margin: "10px" }}>You must be logged in to comment.<Link to={"/Login"}>Log in</Link></p>
                     </div>
                 )}
-               
+
 
             </div>
 

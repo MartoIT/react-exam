@@ -35,10 +35,16 @@ export const articlesServcicesFactory = () => {
         return result;
     }
 
+    const edit = async (data, token) => {
+        const articleId = data._id
+        const result = await request.put(`${baseUrl}/${articleId}`, data, token);
+    }  
+
     return {
         getAll,
         addNewPost,
         getOne,
+        edit,
         delete: deleteArticle,
     }
 }

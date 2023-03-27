@@ -25,7 +25,7 @@ export const Article = ({
                         <span className="text-primary px-2">|</span>
                         <a className="text-primary text-uppercase text-decoration-none" href="#/">{username}</a>
                     </div>
-                    <a className="h5 m-0 text-decoration-none" href="#/"><p>Place - {title}</p>  <p>Days - {days}</p> <p>Budget - {budget}</p> </a>
+                    <a className="h5 m-0 text-decoration-none" href="#/"><p>{title}</p>  <p>{days} - Days</p> <p>{budget} Euro - Budget</p> </a>
                     <div>
                         <Link to={`/details/${_id}`}>
                             <button className="mybtn color">Read more..</button>
