@@ -57,6 +57,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         const comment = e.target.comment.value
         const articleId = article._id;
         onComentAdd(username, articleId, comment, token)
+        
     };
 
 
