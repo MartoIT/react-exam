@@ -6,15 +6,17 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { articlesServcicesFactory } from '../../services/articlesServices';
 import { AuthContext } from '../../context/authContext';
 import { formatDate } from './formData';
+import { commentsServcicesFactory } from '../../services/comentsServices';
 export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
     const { userId, token, isAuthenticated, username } = useContext(AuthContext);
     const articleService = articlesServcicesFactory()
+    const commnetServices = commentsServcicesFactory()
     const navigate = useNavigate();
     const { articleId } = useParams();
     const [article, setArticle] = useState({});
     const [comment, setComment] = useState('')
-    
+
 
     const isOwner = article._ownerId === userId;
 
@@ -24,6 +26,15 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                 setArticle(result);
             })
     }, [articleId]);
+
+    useEffect(() => {
+        commnetServices.getAll()
+            .then(result => {
+                const current = result.filter((c) => c.articleId === articleId)
+                setComment(current);
+                
+            })
+    }, []);
 
 
     const onDelete = async (e) => {
@@ -88,36 +99,39 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                 <div>
                                     <div>
                                         <Link to={`/details/${article._id}/edit`}>
-                                        <button className="mybtn color" >Edit</button>
+                                            <button className="mybtn color" >Edit</button>
                                         </Link>
                                     </div>
                                     <button className="mybtn color" onClick={onDelete}>Delete</button>
                                 </div>
                             )}
                         </section>
-                                
+
 
                     </div>
-                    
+
                 </section>
 
                 <div>
-                    
+
                 </div>
 
                 <div >
                     <h2>Comments:</h2>
                     <ul>
-                        {/* {game.comments && Object.values(game.comments).map(x => (
+                        {comment && Object.values(comment).map(x => (
                             <li key={x._id} className="comment">
                                 <p>{x.username}: {x.comment}</p>
                             </li>
-                        ))} */}
+                        ))}
                     </ul>
 
-                    {/* {!Object.values(game.comments).length && (
-                        <p className="no-comment">No comments.</p>
-                    )} */}
+                    {!Object.values(comment).length && (
+                        <div>
+                            <p >0 comments yet</p>
+                            <p >Be the first to comment</p>
+                        </div>
+                    )}
                 </div>
 
                 <p></p>
@@ -130,7 +144,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                     <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
                                 </div>
                                 <div>
-                                    <button className="btn btn-primary btn-block py-3" onChange={commentAdd}  type="submit">Send</button>
+                                    <button className="btn btn-primary btn-block py-3" onChange={commentAdd} type="submit">Send</button>
                                 </div>
 
                             </form>

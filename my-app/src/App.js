@@ -138,7 +138,7 @@ function App() {
 
    
     const result = await commnetServices.addNewComent(username, articleId, comment, token)
-    console.log(result)
+    
     // articleServices.getAll()
     //   .then(result => {
     //     setArticle(result)
