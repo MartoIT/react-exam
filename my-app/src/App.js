@@ -70,7 +70,7 @@ function App() {
       return;
     }
     setUserData(result)
-    
+
     navigate('/');
 
 
@@ -79,7 +79,7 @@ function App() {
   const onRegisterSubmit = async (data) => {
 
     const result = await authService.register(data);
-    
+
     if (data.password !== data.rePass) {
       alert(`Password doesn't match!`);
       return;
@@ -91,10 +91,10 @@ function App() {
   };
 
   const onLogout = async () => {
-      await authService.logout();
+    await authService.logout();
 
-     setUserData('');
-     navigate('/');
+    setUserData('');
+    navigate('/');
   }
 
   const onPostSubmit = async (data, token) => {
@@ -103,16 +103,31 @@ function App() {
       .then(result => {
         setArticle(result)
       })
-    
+
     navigate('/blog');
 
   }
+
+  const onDeleteClick = async (id, token) => {
+
+    const result = await articleServices.delete(id, token);
+    articleServices.getAll()
+      .then(result => {
+        setArticle(result)
+      })
+
+    // TODO: delete from state
+
+    navigate('/blog');
+  };
+
 
   const contextValues = {
     onLoginSubmit,
     onRegisterSubmit,
     onLogout,
     onPostSubmit,
+    onDeleteClick,
     userId: userData._id,
     token: userData.accessToken,
     username: userData.username,
@@ -144,10 +159,10 @@ function App() {
           <Route path='/testimonial' element={<Testimonial />} />
           <Route path='/booking' element={<Booking />} />
           <Route path='/carouselnqmam' element={<Carousel />} />
-          <Route path='/blog' element={<Blog article={article}/>} />
-          <Route path='/post' element={<Post onPostSubmit={onPostSubmit}/>} />
+          <Route path='/blog' element={<Blog article={article} />} />
+          <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/details/:articleId' element={<DetailsArticle />} />
+          <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} />} />
         </Routes>
 
       </main>

@@ -5,14 +5,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { articlesServcicesFactory } from '../../services/articlesServices';
 import { AuthContext } from '../../context/authContext';
 import { formatDate } from './formData';
-export const DetailsArticle = () => {
+export const DetailsArticle = ({onDeleteClick,}) => {
 
     const { userId, token } = useContext(AuthContext);
     const articleService = articlesServcicesFactory()
 
     const { articleId } = useParams();
     const [article, setArticle] = useState({});
-    const navigate = useNavigate();
+    
     const isOwner = article._ownerId === userId;
 
     useEffect(() => {
@@ -23,17 +23,15 @@ export const DetailsArticle = () => {
     }, [articleId]);
 
     
+    const onSubmit = async (e) => {
 
-    const onDeleteClick = async () => {
+        e.preventDefault();
         const id = article._id;
-        const result = await articleService.delete(id, token);
+        onDeleteClick(id, token)
 
-      
-        // TODO: delete from state
-
-        navigate('/blog');
     };
 
+   
 
     return (
         <>
@@ -73,7 +71,7 @@ export const DetailsArticle = () => {
                         {isOwner && (
                             <div>
                                 <button className="mybtn color">Edit</button>
-                                <button className="mybtn color" onClick={onDeleteClick}>Delete</button>
+                                <button className="mybtn color" onClick={onSubmit}>Delete</button>
                             </div>
                         )}
                         <button className="mybtn color">Load comments</button>

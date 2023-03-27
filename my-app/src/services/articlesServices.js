@@ -28,6 +28,7 @@ export const articlesServcicesFactory = () => {
     };
 
     const deleteArticle = async (articleId, token) => {
+        console.log(articleId, token)
         
         const result = await request.del(`${baseUrl}/${articleId}`, token);
        
