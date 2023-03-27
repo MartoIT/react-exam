@@ -34,6 +34,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                 setComment(current);
                 
             })
+            
     }, []);
 
 

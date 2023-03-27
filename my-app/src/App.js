@@ -133,19 +133,10 @@ function App() {
 
     navigate('/blog');
   };
-
+  
   const onComentAdd = async (username, articleId, comment, token) => {
-
-   
-    const result = await commnetServices.addNewComent(username, articleId, comment, token)
+    const result = await commnetServices.addNewComent(username, articleId, comment, token);
     
-    // articleServices.getAll()
-    //   .then(result => {
-    //     setArticle(result)
-    //   })
-
-
-   
   };
 
   const contextValues = {
