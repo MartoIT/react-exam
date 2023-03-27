@@ -36,7 +36,6 @@ export const EditPost = ({
     });
     
     
-
     useEffect( () => {
         async function getOne() {
             
@@ -56,6 +55,8 @@ export const EditPost = ({
             [event.target.id]: event.target.value,
         });
     };
+
+    
 
 
     const onSubmit = async (e) => {

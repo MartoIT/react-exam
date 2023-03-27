@@ -6,13 +6,15 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { articlesServcicesFactory } from '../../services/articlesServices';
 import { AuthContext } from '../../context/authContext';
 import { formatDate } from './formData';
-export const DetailsArticle = ({ onDeleteClick, }) => {
+export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
-    const { userId, token, isAuthenticated } = useContext(AuthContext);
+    const { userId, token, isAuthenticated, username } = useContext(AuthContext);
     const articleService = articlesServcicesFactory()
     const navigate = useNavigate();
     const { articleId } = useParams();
     const [article, setArticle] = useState({});
+    const [comment, setComment] = useState('')
+    
 
     const isOwner = article._ownerId === userId;
 
@@ -30,6 +32,19 @@ export const DetailsArticle = ({ onDeleteClick, }) => {
         const id = article._id;
         onDeleteClick(id, token)
 
+    };
+    const commentAdd = (event) => {
+        setComment({
+            ...comment,
+            [event.target.id]: event.target.value,
+        });
+    };
+
+    const onCommentSubmit = async (e) => {
+        e.preventDefault();
+        const comment = e.target.comment.value
+        const articleId = article._id;
+        onComentAdd(username, articleId, comment, token)
     };
 
 
@@ -80,21 +95,42 @@ export const DetailsArticle = ({ onDeleteClick, }) => {
                                 </div>
                             )}
                         </section>
-
+                                
 
                     </div>
+                    
                 </section>
+
+                <div>
+                    
+                </div>
+
+                <div >
+                    <h2>Comments:</h2>
+                    <ul>
+                        {/* {game.comments && Object.values(game.comments).map(x => (
+                            <li key={x._id} className="comment">
+                                <p>{x.username}: {x.comment}</p>
+                            </li>
+                        ))} */}
+                    </ul>
+
+                    {/* {!Object.values(game.comments).length && (
+                        <p className="no-comment">No comments.</p>
+                    )} */}
+                </div>
+
                 <p></p>
                 <p></p>
                 {isAuthenticated && (<div >
                     <div className="col-lg-5">
                         <div className="card-body rounded-bottom bg-white p-5" >
-                            <form>
+                            <form onSubmit={onCommentSubmit}>
                                 <div className="form-group">
                                     <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
                                 </div>
                                 <div>
-                                    <button className="btn btn-primary btn-block py-3" type="submit">Send</button>
+                                    <button className="btn btn-primary btn-block py-3" onChange={commentAdd}  type="submit">Send</button>
                                 </div>
 
                             </form>

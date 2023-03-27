@@ -24,6 +24,7 @@ import { Post } from './componets/Blog/Post';
 import { articlesServcicesFactory } from './services/articlesServices';
 import { DetailsArticle } from './componets/Blog/DetailsArticle';
 import { EditPost } from './componets/Blog/EditPost';
+import { commentsServcicesFactory } from './services/comentsServices';
 
 
 
@@ -32,11 +33,13 @@ function App() {
   const [packages, setPackages] = useState([]);
   const [services, setServices] = useState([]);
   const [article, setArticle] = useState([]);
+  const [commnets, setComents] = useState([]);
   const [userData, setUserData] = useState('');
   const packagesServices = packagesServicessFactory()
   const offeredServices = offeredServcicesFactory();
   const articleServices = articlesServcicesFactory()
   const authService = authServicesFactory()
+  const commnetServices = commentsServcicesFactory();
 
 
   useEffect(() => {
@@ -131,6 +134,19 @@ function App() {
     navigate('/blog');
   };
 
+  const onComentAdd = async (username, articleId, comment, token) => {
+
+   
+    const result = await commnetServices.addNewComent(username, articleId, comment, token)
+    console.log(result)
+    // articleServices.getAll()
+    //   .then(result => {
+    //     setArticle(result)
+    //   })
+
+
+   
+  };
 
   const contextValues = {
     onLoginSubmit,
@@ -138,6 +154,7 @@ function App() {
     onLogout,
     onPostSubmit,
     onDeleteClick,
+    onComentAdd,
     userId: userData._id,
     token: userData.accessToken,
     username: userData.username,
@@ -170,7 +187,7 @@ function App() {
           <Route path='/blog' element={<Blog article={article} />} />
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} />} />
+          <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} onComentAdd={onComentAdd} />} />
           <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick}/>} />
         </Routes>
 
