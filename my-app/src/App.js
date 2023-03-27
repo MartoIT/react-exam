@@ -116,7 +116,6 @@ function App() {
         setArticle(result)
       })
 
-    // TODO: delete from state
 
     navigate('/blog');
   };

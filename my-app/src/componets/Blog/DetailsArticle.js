@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/authContext';
 import { formatDate } from './formData';
 export const DetailsArticle = ({onDeleteClick,}) => {
 
-    const { userId, token } = useContext(AuthContext);
+    const { userId, token, isAuthenticated } = useContext(AuthContext);
     const articleService = articlesServcicesFactory()
 
     const { articleId } = useParams();
@@ -80,7 +80,7 @@ export const DetailsArticle = ({onDeleteClick,}) => {
                 </section>
                 <p></p>
                 <p></p>
-                <div >
+                {isAuthenticated && ( <div >
                     <div className="col-lg-5">
                         <div className="card-body rounded-bottom bg-white p-5" >
                             <form>
@@ -95,7 +95,8 @@ export const DetailsArticle = ({onDeleteClick,}) => {
 
                         </div>
                     </div>
-                </div>
+                </div>)}
+               
 
             </div>
 

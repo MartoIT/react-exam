@@ -39,7 +39,7 @@ export const NavBar = () => {
                                     <Link to={"/teamPage"} className="dropdown-item">Our team</Link>
                                     <Link to={"/testimonial"} className="dropdown-item">Other about us</Link>
                                     <Link to={"/blog"} className="dropdown-item">Blog</Link>
-                                    <a href="destination.html" className="dropdown-item">Contact</a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ export const NavBar = () => {
                                     <Link to={"/teamPage"} className="dropdown-item">Our team</Link>
                                     <Link to={"/testimonial"} className="dropdown-item">Other about us</Link>
                                     <Link to={"/blog"} className="dropdown-item">Blog</Link>
-                                    <a href="destination.html" className="dropdown-item">Contact</a>
+                                    
                                 </div>
                             </div>
                         </div>
