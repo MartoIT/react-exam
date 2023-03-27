@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
 
 
 import { articlesServcicesFactory } from '../../services/articlesServices';
@@ -74,7 +75,7 @@ export const DetailsArticle = ({onDeleteClick,}) => {
                                 <button className="mybtn color" onClick={onSubmit}>Delete</button>
                             </div>
                         )}
-                        <button className="mybtn color">Load comments</button>
+                        
 
                     </div>
                 </section>
@@ -96,6 +97,12 @@ export const DetailsArticle = ({onDeleteClick,}) => {
                         </div>
                     </div>
                 </div>)}
+
+                {!isAuthenticated && (
+                    <div>
+                        <p style={{ margin: "10px" }}>You must be logged in to comment.<Link to={"/Login"}>Log in</Link></p>
+                    </div>
+                )}
                
 
             </div>
