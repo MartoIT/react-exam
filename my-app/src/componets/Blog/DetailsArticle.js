@@ -31,11 +31,11 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         commnetServices.getAll()
             .then(result => {
                 const current = result.filter((c) => c.articleId === articleId)
-                
+
                 setComment(current);
-                
+
             })
-            
+
     }, []);
 
     const onDelete = async (e) => {
@@ -45,25 +45,25 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         onDeleteClick(id, token)
 
     };
-   
+
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
         let comment = e.target.comment.value;
-        
+
         const articleId = article._id;
         await commnetServices.addNewComent(imageUrl, username, articleId, comment, token);
-        
+
         commnetServices.getAll()
             .then(result => {
                 const current = result.filter((c) => c.articleId === articleId)
                 console.log(current)
                 setComment(current);
-        })
+            })
         let comment2 = e.target.comment;
         comment2.value = '';
-        
-       
+
+
     };
 
 
@@ -126,16 +126,56 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
                 <div >
                     <h2>Comments:</h2>
-                    <ul >
-                        {comment && Object.values(comment).map(x => (
-                            <li key={x._id} className="comment">
-                                <img className="imgComment" src={x.imageUrl} alt="fluid" />
-                                <p >Username: {x.username}</p>
-                                <p>Comment: {x.comment}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="container mt-5">
+                        
 
+                        <div className="row  d-flex justify-content-center">
+
+                            <div className="col-md-8">
+
+                            {comment && Object.values(comment).map(x => (
+                            
+                                
+                        
+                                <div key={x._id}  className="card p-3">
+
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        
+                                        <div className="user d-flex flex-row align-items-center">
+
+                                            <img src={x.imageUrl} width="80" className="user-img rounded-circle mr-2" />
+                                            <span><small className="font-weight-bold text-primary">{x.username}</small> <small className="font-weight-bold">{x.comment}</small></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div className="action d-flex justify-content-between mt-2 align-items-center">
+
+                                      
+
+                                        <div className="icons align-items-center">
+
+                                            <i className="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
+                                            <i className="fa fa-check-circle-o check-icon"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                ))}
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
                     {!Object.values(comment).length && (
                         <div>
                             <p >0 comments yet</p>
@@ -151,10 +191,10 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                         <div className="card-body rounded-bottom bg-white p-5" >
                             <form onSubmit={onCommentSubmit} >
                                 <div className="form-group">
-                                    <textarea className="form-control p-4" name="comment"   placeholder="leave a comment..." rows="2" cols="15" />
+                                    <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
                                 </div>
                                 <div>
-                                    <button className="btn btn-primary btn-block py-3"  type="submit">Send</button>
+                                    <button className="btn btn-primary btn-block py-3" type="submit">Send</button>
                                 </div>
 
                             </form>
