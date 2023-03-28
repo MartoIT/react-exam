@@ -9834,3 +9834,22 @@ h6,
 .username {
   text-indent: 30px;
 }
+
+
+button {
+  
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  font-size: 60px;
+  color: gold;
+  
+}
+.off {
+  font-size: 40px;
+  color: #ccc;
+}
+

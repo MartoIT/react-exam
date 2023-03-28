@@ -123,7 +123,7 @@ function App() {
     navigate('/blog');
   };
   const onEditClick = async (id, data, token) => {
-   
+
     const result = await articleServices.edit(id, data, token)
     articleServices.getAll()
       .then(result => {
@@ -133,11 +133,12 @@ function App() {
 
     navigate('/blog');
   };
-  
-  const onComentAdd = async ( username, articleId, comment, token) => {
-    const result = await commnetServices.addNewComent( username, articleId, comment, token);
-    
+
+  const onComentAdd = async (username, articleId, comment, token) => {
+    const result = await commnetServices.addNewComent(username, articleId, comment, token);
+
   };
+ 
 
   const contextValues = {
     onLoginSubmit,
@@ -180,7 +181,7 @@ function App() {
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} onComentAdd={onComentAdd} />} />
-          <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick}/>} />
+          <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick} />} />
         </Routes>
 
       </main>
