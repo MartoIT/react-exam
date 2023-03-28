@@ -31,7 +31,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         commnetServices.getAll()
             .then(result => {
                 const current = result.filter((c) => c.articleId === articleId)
-                console.log(current)
+                
                 setComment(current);
                 
             })
@@ -52,10 +52,14 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         let comment = e.target.comment.value;
         
         const articleId = article._id;
-        await commnetServices.addNewComent(imageUrl, username, articleId, comment, token)
-        const result = await commnetServices.getAll()
+        await commnetServices.addNewComent(imageUrl, username, articleId, comment, token);
         
-        setComment(result);
+        commnetServices.getAll()
+            .then(result => {
+                const current = result.filter((c) => c.articleId === articleId)
+                console.log(current)
+                setComment(current);
+        })
         let comment2 = e.target.comment;
         comment2.value = '';
         
