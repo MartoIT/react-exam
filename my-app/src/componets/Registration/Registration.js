@@ -53,7 +53,7 @@ export const Registration = () => {
                                         <input type="age" className="form-control p-4" placeholder="Age" name="age" required="required" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" className="form-control p-4" src="sdasda" alt="Submit" width="100" height="100" name="imageUrl" placeholder="Avatar link here..." />
+                                        <input type="text" className="form-control p-4" required="required" src="sdasda" alt="Submit" width="100" height="100" name="imageUrl" placeholder="Avatar link here..." />
                                         
                                     </div>
                                     <div className="form-group">

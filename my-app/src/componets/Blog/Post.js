@@ -40,12 +40,13 @@ export const Post = ({
                     <h1>New Blog Post Entry</h1>
                     <label htmlFor="title" className="color" style={{ display: "table-cell" }}>Title:</label>
                     <input
-                        type="text"
+                       
                         id="title"
                         name="title"
+                        required="required"
                         className="input"
                         style={{ display: "table-cell"  }}
-
+                        placeholder="Place" 
                         value={form.title}
                         onChange={handleChange}
 
@@ -53,36 +54,42 @@ export const Post = ({
 
                     <label htmlFor="days" className="color" style={{ display: "table-cell" }}>Days:</label>
                     <input
-                        type="text"
+                        type="number"
                         id="days"
                         name="days"
+                        required="required"
                         className="input"
                         style={{ display: "table-cell" }}
                         value={form.days}
+                        placeholder="Number" 
                         onChange={handleChange}
 
                     />
 
                     <label htmlFor="budget" className="color" style={{ display: "table-cell" }}>Budget:</label>
                     <input
-                        type="text"
+                        type="number"
                         id="budget"
                         name="budget"
+                        required="required"
                         className="input"
                         style={{ display: "table-cell" }}
                         value={form.budget}
+                        placeholder="Number" 
                         onChange={handleChange}
 
                     />
 
                     <label htmlFor="img" className="color" style={{ display: "table-cell" }}>Image:</label>
                     <input
-                        type="text"
+                        type="url"
                         id="imageUrl"
                         name="imageUrl"
+                        required="required"
                         className="input"
                         style={{ display: "table-cell" }}
                         value={form.imageUrl}
+                        placeholder="Url..." 
                         onChange={handleChange}
 
                     />
@@ -91,8 +98,10 @@ export const Post = ({
                     <textarea type="text"
                         id="story"
                         name="story"
+                        required="required"
                         className="textarea"
                         value={form.story}
+                        placeholder="Write your story here..." 
                         onChange={handleChange} ></textarea>
                     <input className="btn btn-primary btn-block py-3 mybtn" type="submit" value="Send story" />
 

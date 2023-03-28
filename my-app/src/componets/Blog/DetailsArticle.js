@@ -191,7 +191,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                         <div className="card-body rounded-bottom bg-white p-5" >
                             <form onSubmit={onCommentSubmit} >
                                 <div className="form-group">
-                                    <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
+                                    <textarea className="form-control p-4" required="required" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
                                 </div>
                                 <div>
                                     <button className="btn btn-primary btn-block py-3" type="submit">Send</button>
