@@ -9,7 +9,7 @@ import { formatDate } from './formData';
 import { commentsServcicesFactory } from '../../services/comentsServices';
 export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
-    const { userId, token, isAuthenticated, username } = useContext(AuthContext);
+    const { userId, token, isAuthenticated, username, imageUrl } = useContext(AuthContext);
     const articleService = articlesServcicesFactory()
     const commnetServices = commentsServcicesFactory()
     const navigate = useNavigate();
@@ -31,16 +31,12 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         commnetServices.getAll()
             .then(result => {
                 const current = result.filter((c) => c.articleId === articleId)
+                console.log(current)
                 setComment(current);
                 
             })
             
     }, []);
-
-    
-    const handleChange = (event) => {
-      onCommentSubmit()
-    };
 
     const onDelete = async (e) => {
 
@@ -53,12 +49,16 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
-        const comment = e.target.comment.value
+        let comment = e.target.comment.value;
+        
         const articleId = article._id;
-        const result = await commnetServices.addNewComent(username, articleId, comment, token)
-        const result2 = await commnetServices.getAll()
-       
-        setComment(result2);
+        await commnetServices.addNewComent(imageUrl, username, articleId, comment, token)
+        const result = await commnetServices.getAll()
+        
+        setComment(result);
+        let comment2 = e.target.comment;
+        comment2.value = '';
+        
        
     };
 
@@ -125,7 +125,9 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                     <ul >
                         {comment && Object.values(comment).map(x => (
                             <li key={x._id} className="comment">
-                                <p>{x.username}: {x.comment}</p>
+                                <img className="imgComment" src={x.imageUrl} alt="fluid" />
+                                <p >Username: {x.username}</p>
+                                <p>Comment: {x.comment}</p>
                             </li>
                         ))}
                     </ul>
@@ -143,12 +145,12 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                 {isAuthenticated && (<div >
                     <div className="col-lg-5">
                         <div className="card-body rounded-bottom bg-white p-5" >
-                            <form onSubmit={onCommentSubmit}>
+                            <form onSubmit={onCommentSubmit} >
                                 <div className="form-group">
-                                    <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
+                                    <textarea className="form-control p-4" name="comment"   placeholder="leave a comment..." rows="2" cols="15" />
                                 </div>
                                 <div>
-                                    <button className="btn btn-primary btn-block py-3" onChange={handleChange} type="submit">Send</button>
+                                    <button className="btn btn-primary btn-block py-3"  type="submit">Send</button>
                                 </div>
 
                             </form>

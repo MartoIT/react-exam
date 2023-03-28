@@ -13,11 +13,13 @@ export const commentsServcicesFactory = () => {
         return comments;
     };
 
-    const addNewComent = async (username, articleId, comment, token) => {
+    const addNewComent = async (imageUrl, username, articleId, comment, token) => {
         const data = {
             articleId,
             comment,
-            username
+            username,
+            imageUrl,
+            
         }
 
         

@@ -134,15 +134,9 @@ function App() {
     navigate('/blog');
   };
   
-  const onComentAdd = async (username, articleId, comment, token) => {
-    const result = await commnetServices.addNewComent(username, articleId, comment, token);
-    console.log(result)
-    // articleServices.getOne(articleId)
-    //   .then(result => {
-    //     console.log(result)
-       
-    //     navigate(`/details/${result._id}`)
-    //   })
+  const onComentAdd = async ( username, articleId, comment, token) => {
+    const result = await commnetServices.addNewComent( username, articleId, comment, token);
+    
   };
 
   const contextValues = {
@@ -156,6 +150,7 @@ function App() {
     token: userData.accessToken,
     username: userData.username,
     userEmail: userData.email,
+    imageUrl: userData.imageUrl,
     isAuthenticated: !!userData.accessToken,
   }
 
