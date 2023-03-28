@@ -37,6 +37,10 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
             
     }, []);
 
+    
+    const handleChange = (event) => {
+      onCommentSubmit()
+    };
 
     const onDelete = async (e) => {
 
@@ -45,19 +49,17 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         onDeleteClick(id, token)
 
     };
-    const commentAdd = (event) => {
-        setComment({
-            ...comment,
-            [event.target.id]: event.target.value,
-        });
-    };
+   
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
         const comment = e.target.comment.value
         const articleId = article._id;
-        onComentAdd(username, articleId, comment, token)
-        
+        const result = await commnetServices.addNewComent(username, articleId, comment, token)
+        const result2 = await commnetServices.getAll()
+       
+        setComment(result2);
+       
     };
 
 
@@ -120,7 +122,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
                 <div >
                     <h2>Comments:</h2>
-                    <ul>
+                    <ul >
                         {comment && Object.values(comment).map(x => (
                             <li key={x._id} className="comment">
                                 <p>{x.username}: {x.comment}</p>
@@ -146,7 +148,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                     <textarea className="form-control p-4" name="comment" placeholder="leave a comment..." rows="2" cols="15" />
                                 </div>
                                 <div>
-                                    <button className="btn btn-primary btn-block py-3" onChange={commentAdd} type="submit">Send</button>
+                                    <button className="btn btn-primary btn-block py-3" onChange={handleChange} type="submit">Send</button>
                                 </div>
 
                             </form>

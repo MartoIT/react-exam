@@ -136,7 +136,13 @@ function App() {
   
   const onComentAdd = async (username, articleId, comment, token) => {
     const result = await commnetServices.addNewComent(username, articleId, comment, token);
-    
+    console.log(result)
+    // articleServices.getOne(articleId)
+    //   .then(result => {
+    //     console.log(result)
+       
+    //     navigate(`/details/${result._id}`)
+    //   })
   };
 
   const contextValues = {
