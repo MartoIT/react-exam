@@ -1,8 +1,41 @@
 import { StarRating } from "../../utils/StarRating";
 
-export const Testimonial = ({
-   
-}) => {
+export const Testimonial = () => {
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const data1 = e.target.children
+        let arr = 0;
+        const star1 = e.target.children[0].children[0].classList.contains('on');
+      
+        const star2 = e.target.children[0].children[0].classList.contains('on');
+        const star3 = e.target.children[0].children[0].classList.contains('on');
+        const star4 = e.target.children[0].children[0].classList.contains('on');
+        const star5 = e.target.children[0].children[0].classList.contains('on');
+        if(star1 === true){
+            console.log(star1)
+            arr++
+        }
+        if(star2 === true){
+            console.log(star2)
+            arr++
+        }if(star3 === true){
+            arr++
+        }if(star4 === true){
+            arr++
+        }if(star5 === true){
+            arr++
+       
+        }
+
+        //let newData = Array.from(data1)
+        //let asd = data1.filter(n => n.classList === 'on')
+        
+        //console.log(data1)
+        // console.log(newData)
+        // console.log(asd)
+        console.log(arr)
+    }
     return (
         <div className="container-fluid py-5">
             <div className="container py-5">
@@ -38,8 +71,8 @@ export const Testimonial = ({
                             
                         </div>
                         <div className="card-body rounded-bottom bg-white p-5" >
-                            <form>
-                                {<StarRating/>}
+                            <form onSubmit={onSubmit}>
+                                {<StarRating />}
                                 
                                 <div className="form-group">
                                     <textarea className="form-control p-4" name="review" placeholder="leave a review" rows="4" cols="40" />
