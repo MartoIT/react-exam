@@ -25,6 +25,7 @@ import { articlesServcicesFactory } from './services/articlesServices';
 import { DetailsArticle } from './componets/Blog/DetailsArticle';
 import { EditPost } from './componets/Blog/EditPost';
 import { commentsServcicesFactory } from './services/comentsServices';
+import { reviewServicessFactory } from './services/reviewServices';
 
 
 
@@ -33,13 +34,14 @@ function App() {
   const [packages, setPackages] = useState([]);
   const [services, setServices] = useState([]);
   const [article, setArticle] = useState([]);
-  const [commnets, setComents] = useState([]);
+  const [review, setReview] = useState([]);
   const [userData, setUserData] = useState('');
   const packagesServices = packagesServicessFactory()
   const offeredServices = offeredServcicesFactory();
   const articleServices = articlesServcicesFactory()
   const authService = authServicesFactory()
   const commnetServices = commentsServcicesFactory();
+  const reviewServices = reviewServicessFactory();
 
 
   useEffect(() => {
@@ -60,6 +62,13 @@ function App() {
     articleServices.getAll()
       .then(result => {
         setArticle(result)
+      })
+  }, []);
+
+  useEffect(() => {
+    reviewServices.getAll()
+      .then(result => {
+        setReview(result)
       })
   }, []);
 
@@ -175,7 +184,7 @@ function App() {
           <Route path='/packages' element={<Packages packages={packages} />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
-          <Route path='/testimonial' element={<Testimonial />} />
+          <Route path='/testimonial' element={<Testimonial review={review}/>} />
           <Route path='/booking' element={<Booking />} />
           <Route path='/blog' element={<Blog article={article} />} />
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
