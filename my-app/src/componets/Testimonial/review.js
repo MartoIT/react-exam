@@ -8,11 +8,7 @@ export const Review = ({
     const current = Number(stars)
     return (
 
-        <div className="container py-5">
-            <div className="text-center mb-3 pb-3">
-                <h6 className="text-primary text-uppercase" style={{ letterSpacing: "5px" }}>Testimonial</h6>
-                <h1>What Say Our Clients</h1>
-            </div>
+       
             <div className="row" >
                 <div className="col-lg-3 col-md-4 col-sm-6 pb-2">
                     <div >
@@ -31,6 +27,6 @@ export const Review = ({
                 </div>
 
             </div>
-        </div>
+       
     );
 };

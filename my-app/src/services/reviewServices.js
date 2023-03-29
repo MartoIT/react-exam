@@ -15,8 +15,17 @@ export const reviewServicessFactory = () => {
         return packages;
     };
 
+    const addReview = async (data, token) => {
+
+        const response = await request.post(`${baseUrl}`, data, token);
+        const articles = Object.values(response);
+
+        return articles;
+    };
+
     return {
         getAll,
+        addReview,
     }
 }
  

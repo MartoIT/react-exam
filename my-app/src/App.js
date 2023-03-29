@@ -147,6 +147,19 @@ function App() {
     const result = await commnetServices.addNewComent(username, articleId, comment, token);
 
   };
+
+  const onReviewPost = async (data, token) => {
+    const review = await reviewServices.addReview(data, token);
+    console.log(token)
+    console.log(token)
+    console.log(review)
+    reviewServices.getAll()
+      .then(result => {
+        setReview(result)
+      })
+
+    
+  }
  
 
   const contextValues = {
@@ -156,6 +169,7 @@ function App() {
     onPostSubmit,
     onDeleteClick,
     onComentAdd,
+    onReviewPost,
     userId: userData._id,
     token: userData.accessToken,
     username: userData.username,
@@ -184,7 +198,7 @@ function App() {
           <Route path='/packages' element={<Packages packages={packages} />} />
           <Route path='/destination' element={<Destination />} />
           <Route path='/teamPage' element={<TeamPage />} />
-          <Route path='/testimonial' element={<Testimonial review={review}/>} />
+          <Route path='/testimonial' element={<Testimonial review={review} onReviewPost={onReviewPost}/>} />
           <Route path='/booking' element={<Booking />} />
           <Route path='/blog' element={<Blog article={article} />} />
           <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
