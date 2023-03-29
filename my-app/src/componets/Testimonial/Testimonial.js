@@ -4,37 +4,11 @@ export const Testimonial = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const data1 = e.target.children
-        let arr = 0;
-        const star1 = e.target.children[0].children[0].classList.contains('on');
-      
-        const star2 = e.target.children[0].children[0].classList.contains('on');
-        const star3 = e.target.children[0].children[0].classList.contains('on');
-        const star4 = e.target.children[0].children[0].classList.contains('on');
-        const star5 = e.target.children[0].children[0].classList.contains('on');
-        if(star1 === true){
-            console.log(star1)
-            arr++
-        }
-        if(star2 === true){
-            console.log(star2)
-            arr++
-        }if(star3 === true){
-            arr++
-        }if(star4 === true){
-            arr++
-        }if(star5 === true){
-            arr++
-       
-        }
-
-        //let newData = Array.from(data1)
-        //let asd = data1.filter(n => n.classList === 'on')
+        const review = e.target.review.value;
+        const rating = e.target.children[0].children[5].textContent.charAt(11);
+        console.log(rating);
+        console.log(review);
         
-        //console.log(data1)
-        // console.log(newData)
-        // console.log(asd)
-        console.log(arr)
     }
     return (
         <div className="container-fluid py-5">

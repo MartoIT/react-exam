@@ -20,6 +20,7 @@ export const StarRating = () => {
                     </button>
                 );
             })}
+            <p>Rating is: {rating}</p>
         </div>
     );
 };
