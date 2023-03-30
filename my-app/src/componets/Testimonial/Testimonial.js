@@ -29,12 +29,15 @@ export const Testimonial = () => {
             username
         };
 
-        const newReview = await reviewServices.addReview(data, token);
-        console.log(newReview)
+        await reviewServices.addReview(data, token);
+        
         reviewServices.getAll()
             .then(result => {
                 setReview(result)
             });
+
+        let review2 = e.target.review;
+        review2.value = '';
 
     }
     return (
