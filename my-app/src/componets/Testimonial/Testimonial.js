@@ -31,8 +31,10 @@ export const Testimonial = ({
             imageUrl,
             username
         }
-        onReviewPost(data, token)
 
+        const newReview = await reviewServices.addReview(data, token);
+        //onReviewPost(data, token)
+        console.log(newReview)
         reviewServices.getAll()
         .then(result => {
           setReview(result)
