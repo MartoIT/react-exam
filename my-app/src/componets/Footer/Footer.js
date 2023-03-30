@@ -1,4 +1,15 @@
+
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
+
+    
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        alert(`Thank you for the email \n We will be in touch with you`)
+        console.log(`tuk`)
+    }
     return (
         <>
         
@@ -11,6 +22,7 @@ export const Footer = () => {
                 <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
                 <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: "5px"}}>Follow Us</h6>
                 <div className="d-flex justify-content-start">
+                
                     <a className="btn btn-outline-primary btn-square mr-2" href="#/"><i className="fab fa-twitter"></i></a>
                     <a className="btn btn-outline-primary btn-square mr-2" href="#/"><i className="fab fa-facebook-f"></i></a>
                     <a className="btn btn-outline-primary btn-square mr-2" href="#/"><i className="fab fa-linkedin-in"></i></a>
@@ -21,13 +33,13 @@ export const Footer = () => {
             <div className="col-lg-3 col-md-6 mb-5">
                 <h5 className="text-white text-uppercase mb-4" style={{letterSpacing: "5px"}}>Usefull Links</h5>
                 <div className="d-flex flex-column justify-content-start">
-                    <a className="text-white-50 mb-2" href="/"><i className="fa fa-angle-right mr-2"></i>Home</a>
-                    <a className="text-white-50 mb-2" href="/destination"><i className="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a className="text-white-50 mb-2" href="/services"><i className="fa fa-angle-right mr-2"></i>Services</a>
-                    <a className="text-white-50 mb-2" href="/packages"><i className="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a className="text-white-50 mb-2" href="/teamPage"><i className="fa fa-angle-right mr-2"></i>Team</a>
-                    <a className="text-white-50 mb-2" href="/testimonial"><i className="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a className="text-white-50" href="/blog"><i className="fa fa-angle-right mr-2"></i>Blog</a>
+                    <Link to={'/'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Home</Link>
+                    <Link to={'/services'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Services</Link>
+                    <Link to={'/destination'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Destination</Link>
+                    <Link to={'/packages'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Packages</Link>
+                    <Link to={'/teamPage'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Team</Link>
+                    <Link to={'/testimonial'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Testimonial</Link>
+                    <Link to={'/blog'} className="fa fa-angle-right mr-2 text-white-50 mb-2">Blog</Link>
                 </div>
             </div>
             <div className="col-lg-3 col-md-6 mb-5">
@@ -37,12 +49,14 @@ export const Footer = () => {
                 <p><i className="fa fa-envelope mr-2"></i>info@example.com</p>
                 <h6 className="text-white text-uppercase mt-4 mb-3" style={{letterSpacing: "5px"}}>Newsletter</h6>
                 <div className="w-100">
+                <form onSubmit={onSubmit} >
                     <div className="input-group">
                         <input type="text" className="form-control border-light" style={{padding: "25px"}} placeholder="Your Email" />
                         <div className="input-group-append">
                             <button className="btn btn-primary px-3">Sign Up</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
