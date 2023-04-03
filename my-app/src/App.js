@@ -26,6 +26,7 @@ import { DetailsArticle } from './componets/Blog/DetailsArticle';
 import { EditPost } from './componets/Blog/EditPost';
 import { commentsServcicesFactory } from './services/comentsServices';
 import { reviewServicessFactory } from './services/reviewServices';
+import { RouteGuard } from './common/RouteGuard';
 
 
 
@@ -148,7 +149,7 @@ function App() {
 
   };
 
- 
+
 
   const contextValues = {
     onLoginSubmit,
@@ -181,17 +182,22 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/services' element={<Services services={services} />} />
-          <Route path='/packages' element={<Packages packages={packages} />} />
-          <Route path='/destination' element={<Destination />} />
-          <Route path='/teamPage' element={<TeamPage />} />
-          <Route path='/testimonial' element={<Testimonial review={review} />} />
-          <Route path='/booking' element={<Booking />} />
+          <Route element={<RouteGuard />}>
+            <Route path='/services' element={<Services services={services} />} />
+            <Route path='/packages' element={<Packages packages={packages} />} />
+            <Route path='/destination' element={<Destination />} />
+            <Route path='/teamPage' element={<TeamPage />} />
+            <Route path='/testimonial' element={<Testimonial review={review} />} />
+            <Route path='/booking' element={<Booking />} />
+            <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
+            <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick} />} />
+          </Route>
+
           <Route path='/blog' element={<Blog article={article} />} />
-          <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
+        
           <Route path='/logout' element={<Logout />} />
           <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} onComentAdd={onComentAdd} />} />
-          <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick} />} />
+         
         </Routes>
 
       </main>
