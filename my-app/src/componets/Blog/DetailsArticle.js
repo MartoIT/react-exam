@@ -76,16 +76,28 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
     };
 
     const editComent = async (e) => {
-        const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[2].textContent;
-        const userId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[3].textContent;
+        const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[2].textContent;
+        const userId = e.target.parentNode.parentNode.parentNode.children[0].children[3].textContent;
 
         const data = await commnetServices.getOne(commentId);
         const ownerId = data._ownerId
+        console.log(data)
+        if(ownerId === userId) {
+            let result = window.confirm(`Do you want to edit your comment?`);
+
+            if(result){
+                navigate(`/details/${articleId}/${commentId}}/edit`)
+                
+            }
+        }
+      
+       
     }
 
     const onDeleteComment = async (e) => {
-        const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[2].textContent;
-        const userId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[3].textContent;
+        const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[2].textContent;
+        const userId = e.target.parentNode.parentNode.parentNode.children[0].children[3].textContent;
+       
 
         const data = await commnetServices.getOne(commentId);
         const ownerId = data._ownerId
@@ -193,7 +205,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                             
                                            {isAuthenticated && (x._ownerId === userId ) &&(
                                             
-                                        <div key={x._id} className="action d-flex justify-content-between mt-2 align-items-center">
+                                        <div key={Math.random()} className="action d-flex justify-content-between mt-2 align-items-center">
 
                                             
                                             <div className="pen">

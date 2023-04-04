@@ -27,6 +27,7 @@ import { EditPost } from './componets/Blog/EditPost';
 import { commentsServcicesFactory } from './services/comentsServices';
 import { reviewServicessFactory } from './services/reviewServices';
 import { RouteGuard } from './common/RouteGuard';
+import { EditComment } from './componets/Blog/EditComment';
 
 
 
@@ -191,12 +192,14 @@ function App() {
             <Route path='/booking' element={<Booking />} />
             <Route path='/post' element={<Post onPostSubmit={onPostSubmit} />} />
             <Route path='/details/:articleId/edit' element={<EditPost onEditClick={onEditClick} />} />
+            <Route path='/details/:articleId/:comment/edit' element={<EditComment />} />
           </Route>
 
           <Route path='/blog' element={<Blog article={article} />} />
         
           <Route path='/logout' element={<Logout />} />
           <Route path='/details/:articleId' element={<DetailsArticle onDeleteClick={onDeleteClick} onComentAdd={onComentAdd} />} />
+         
          
         </Routes>
 
