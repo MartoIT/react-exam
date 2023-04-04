@@ -176,7 +176,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
                                 {comment && Object.values(comment).map(x => (
 
-
+                                    
 
                                     <div key={x._id} className="card p-3">
 
@@ -191,7 +191,8 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                             </div>
                                             
                                             
-                                           
+                                           {isAuthenticated && (x._ownerId === userId ) &&(
+                                            
                                         <div key={x._id} className="action d-flex justify-content-between mt-2 align-items-center">
 
                                             
@@ -204,6 +205,8 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                             </div>
 
                                         </div>
+                                        
+                                        )}
                                      
                                         </div>
                                         
