@@ -155,22 +155,17 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                         <div className="action d-flex justify-content-between mt-2 align-items-center">
 
 
-
-                                            <div className="">
-                                            <i class="fas fa-pen"></i>
+                                            <div className="pen">
+                                            <i class="fas fa-pen" ></i>
                                             </div>
-                                            <div>
+                                            <div className="thubUp">
                                             <i class="fas fa-thumbs-up"></i>
 
                                             </div>
-                                            <div>
-                                            <i class="fa fa-trash-o" style={{fontSize: "36px"}}></i>
+                                            <div className="trashCan">
+                                            <i class='fa-solid fa-trash-can'></i>
                                             </div>
-                                               
-                                               
-                                                {/* <i className="fa fa-check-circle-o check-icon"></i> */}
-                                              
-
+                                            
                                         </div>
 
                                     </div>

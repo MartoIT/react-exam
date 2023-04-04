@@ -9865,3 +9865,15 @@ button {
   padding: 20px;
   border: 2px solid red;
 }  
+
+.pen {
+  color: goldenrod;
+ 
+}
+.thubUp {
+  color: #007bff;
+}
+
+.trashCan {
+  color: red;
+}
