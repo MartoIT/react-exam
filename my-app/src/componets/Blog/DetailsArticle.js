@@ -1,15 +1,12 @@
-
-
 import { useEffect, useState, useContext } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-
-
+import { useParams, Link, useNavigate, Navigate } from 'react-router-dom';
 
 
 import { articlesServcicesFactory } from '../../services/articlesServices';
 import { AuthContext } from '../../context/authContext';
 import { formatDate } from './formData';
 import { commentsServcicesFactory } from '../../services/comentsServices';
+
 export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
     const { userId, token, isAuthenticated, username, imageUrl } = useContext(AuthContext);
@@ -20,10 +17,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
     const [article, setArticle] = useState({});
     const [comment, setComment] = useState('')
 
-
     const isOwner = article._ownerId === userId;
-    
-   
 
     useEffect(() => {
         articleService.getOne(articleId)
@@ -78,26 +72,26 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
     const editComent = async (e) => {
         const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[2].textContent;
         const userId = e.target.parentNode.parentNode.parentNode.children[0].children[3].textContent;
+        const currentComment = e.target.parentNode.parentNode.parentNode.children[0].children[1].children[1];
 
         const data = await commnetServices.getOne(commentId);
         const ownerId = data._ownerId
-        console.log(data)
+      
         if(ownerId === userId) {
             let result = window.confirm(`Do you want to edit your comment?`);
+          
+            navigate(`/details/${articleId}/${commentId}}/edit`, {state: data})
 
-            if(result){
-                navigate(`/details/${articleId}/${commentId}}/edit`)
-                
-            }
+            
         }
-      
-       
+
+
     }
 
     const onDeleteComment = async (e) => {
         const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[2].textContent;
         const userId = e.target.parentNode.parentNode.parentNode.children[0].children[3].textContent;
-       
+
 
         const data = await commnetServices.getOne(commentId);
         const ownerId = data._ownerId
@@ -188,7 +182,7 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
                                 {comment && Object.values(comment).map(x => (
 
-                                    
+
 
                                     <div key={x._id} className="card p-3">
 
@@ -197,32 +191,33 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                             <div className="user d-flex flex-row align-items-center">
 
                                                 <img src={x.imageUrl} width="80" className="user-img rounded-circle mr-2" alt='some' />
-                                                <span><small className="font-weight-bold text-primary">{x.username}</small> <small className="font-weight-bold">{x.comment}</small></span>
+                                                <span><small className="font-weight-bold text-primary">{x.username}</small> <small className="font-weight-bold">
+                                                    {x.comment}</small></span>
                                                 <div style={{ display: "none" }} className="userId">{x._id}</div>
                                                 <div style={{ display: "none" }} className="userId">{x.userId}</div>
                                             </div>
-                                            
-                                            
-                                           {isAuthenticated && (x._ownerId === userId ) &&(
-                                            
-                                        <div key={Math.random()} className="action d-flex justify-content-between mt-2 align-items-center">
 
-                                            
-                                            <div className="pen">
-                                                <i className="fas fa-pen" onClick={editComent} ></i>
-                                            </div>
-                                            
-                                            <div className="trashCan" onClick={onDeleteComment}>
-                                                <i className='fa-solid fa-trash-can' ></i>
-                                            </div>
+
+                                            {isAuthenticated && (x._ownerId === userId) && (
+
+                                                <div key={Math.random()} className="action d-flex justify-content-between mt-2 align-items-center">
+
+
+                                                    <div className="pen">
+                                                        <i className="fas fa-pen" onClick={editComent} ></i>
+                                                    </div>
+
+                                                    <div className="trashCan" onClick={onDeleteComment}>
+                                                        <i className='fa-solid fa-trash-can' ></i>
+                                                    </div>
+
+                                                </div>
+
+                                            )}
 
                                         </div>
-                                        
-                                        )}
-                                     
-                                        </div>
-                                        
-                                        
+
+
 
                                     </div>
                                 ))}
