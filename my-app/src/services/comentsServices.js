@@ -13,12 +13,13 @@ export const commentsServcicesFactory = () => {
         return comments;
     };
 
-    const addNewComent = async (imageUrl, username, articleId, comment, token) => {
+    const addNewComent = async (imageUrl, username, articleId, comment, userId, token) => {
         const data = {
             articleId,
             comment,
             username,
             imageUrl,
+            userId
             
         }
 
@@ -29,8 +30,24 @@ export const commentsServcicesFactory = () => {
         return result;
     };
 
+    const deleteComment = async (comentId, token) => {
+
+        
+        const result = await request.del(`${baseUrl}/${comentId}`, token);
+
+        return result;
+    }
+
+    const getOne = async (articleId) => {
+        const result = await request.get(`${baseUrl}/${articleId}`);
+
+        return result;
+    };
+
     return {
         getAll,
-        addNewComent
+        addNewComent,
+        deleteComment,
+        getOne
     };
 };

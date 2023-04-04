@@ -44,8 +44,12 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
     const onDelete = async (e) => {
 
         e.preventDefault();
-        const id = article._id;
-        onDeleteClick(id, token)
+        let result = window.confirm(`Are you sure you want to delete this article?`);
+        if (result) {
+            const id = article._id;
+            onDeleteClick(id, token)
+        }
+
 
     };
 
@@ -55,12 +59,12 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
         let comment = e.target.comment.value;
 
         const articleId = article._id;
-        await commnetServices.addNewComent(imageUrl, username, articleId, comment, token);
+        await commnetServices.addNewComent(imageUrl, username, articleId, comment, userId, token);
 
         commnetServices.getAll()
             .then(result => {
                 const current = result.filter((c) => c.articleId === articleId)
-                console.log(current)
+
                 setComment(current);
             })
         let comment2 = e.target.comment;
@@ -68,6 +72,38 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
 
     };
+
+    const editComent = async (e) => {
+        const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[2].textContent;
+        const userId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[3].textContent;
+
+        const data = await commnetServices.getOne(commentId);
+        const ownerId = data._ownerId
+    }
+
+    const onDeleteComment = async (e) => {
+        const commentId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[2].textContent;
+        const userId = e.target.parentNode.parentNode.parentNode.children[0].children[0].children[3].textContent;
+
+        const data = await commnetServices.getOne(commentId);
+        const ownerId = data._ownerId
+
+        if (ownerId === userId) {
+            let result = window.confirm(`Are you sure you want to delete this comment?`);
+
+            if (result) {
+                await commnetServices.deleteComment(commentId, token)
+
+                commnetServices.getAll()
+                    .then(result => {
+                        const current = result.filter((c) => c.articleId === articleId)
+
+                        setComment(current);
+                    })
+            }
+
+        }
+    }
 
 
     return (
@@ -148,7 +184,8 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
                                                 <img src={x.imageUrl} width="80" className="user-img rounded-circle mr-2" alt='some' />
                                                 <span><small className="font-weight-bold text-primary">{x.username}</small> <small className="font-weight-bold">{x.comment}</small></span>
-
+                                                <div style={{ display: "none" }} className="userId">{x._id}</div>
+                                                <div style={{ display: "none" }} className="userId">{x.userId}</div>
                                             </div>
                                         </div>
 
@@ -156,16 +193,16 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
 
                                             <div className="pen">
-                                            <i class="fas fa-pen" ></i>
+                                                <i className="fas fa-pen" onClick={editComent} ></i>
                                             </div>
                                             <div className="thubUp">
-                                            <i class="fas fa-thumbs-up"></i>
+                                                <i className="fas fa-thumbs-up"></i>
 
                                             </div>
-                                            <div className="trashCan">
-                                            <i class='fa-solid fa-trash-can'></i>
+                                            <div className="trashCan" onClick={onDeleteComment}>
+                                                <i className='fa-solid fa-trash-can' ></i>
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
