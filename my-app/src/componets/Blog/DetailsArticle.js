@@ -189,26 +189,24 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                                 <div style={{ display: "none" }} className="userId">{x._id}</div>
                                                 <div style={{ display: "none" }} className="userId">{x.userId}</div>
                                             </div>
-                                        </div>
-                                        {comment && Object.values(comment).map(x => (
-                                           x._ownerId === userId ? 
+                                            
+                                            
+                                           
                                         <div key={x._id} className="action d-flex justify-content-between mt-2 align-items-center">
 
                                             
                                             <div className="pen">
                                                 <i className="fas fa-pen" onClick={editComent} ></i>
                                             </div>
-                                            <div className="thubUp">
-                                                <i className="fas fa-thumbs-up"></i>
-
-                                            </div>
+                                            
                                             <div className="trashCan" onClick={onDeleteComment}>
                                                 <i className='fa-solid fa-trash-can' ></i>
                                             </div>
 
                                         </div>
-                                        : console.log(x._ownerId, userId)
-                                       ))}
+                                     
+                                        </div>
+                                        
                                         
 
                                     </div>

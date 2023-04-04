@@ -9871,6 +9871,7 @@ button {
 
 .pen {
   color: goldenrod;
+  padding-left: 3em;
  
 }
 .thubUp {
@@ -9879,4 +9880,5 @@ button {
 
 .trashCan {
   color: red;
+  padding-left: 3em;
 }
