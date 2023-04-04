@@ -15,9 +15,9 @@ export const Footer = () => {
                 <div className="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style={{ marginTop: "90px" }}>
                     <div className="row pt-5">
                         <div className="col-lg-3 col-md-6 mb-5">
-                            <a href="#/" className="navbar-brand">
+                            <Link to={'/'}>
                                 <h1 className="text-primary"><span className="text-white">TRAVEL</span>ER</h1>
-                            </a>
+                           </Link>
                             <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
                             <h6 className="text-white text-uppercase mt-4 mb-3" style={{ letterSpacing: "5px" }}>Follow Us</h6>
                             <div className="d-flex justify-content-start">
