@@ -22,6 +22,8 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
 
 
     const isOwner = article._ownerId === userId;
+    
+   
 
     useEffect(() => {
         articleService.getOne(articleId)
@@ -188,10 +190,11 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                                 <div style={{ display: "none" }} className="userId">{x.userId}</div>
                                             </div>
                                         </div>
+                                        {comment && Object.values(comment).map(x => (
+                                           x._ownerId === userId ? 
+                                        <div key={x._id} className="action d-flex justify-content-between mt-2 align-items-center">
 
-                                        <div className="action d-flex justify-content-between mt-2 align-items-center">
-
-
+                                            
                                             <div className="pen">
                                                 <i className="fas fa-pen" onClick={editComent} ></i>
                                             </div>
@@ -204,6 +207,9 @@ export const DetailsArticle = ({ onDeleteClick, onComentAdd }) => {
                                             </div>
 
                                         </div>
+                                        : console.log(x._ownerId, userId)
+                                       ))}
+                                        
 
                                     </div>
                                 ))}
