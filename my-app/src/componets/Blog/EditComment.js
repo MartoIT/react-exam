@@ -20,8 +20,10 @@ export const EditComment = () => {
 
     })
     const handleChange = (event) => {
-        setForm(event.target.value,
-        );
+        setForm({
+            ...form,
+            [event.target.id]: event.target.value,
+        });
     };
 
     const onSubmit = async (e) => {
