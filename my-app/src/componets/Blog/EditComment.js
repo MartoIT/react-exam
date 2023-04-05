@@ -9,32 +9,63 @@ export const EditComment = () => {
     const location = useLocation();
     const currentData = location.state;
     const currentComment = currentData.comment
-    const { token, username } = useContext(AuthContext)
-    const [form, setForm] = useState('');
+    // const { token, username } = useContext(AuthContext)
+    // const [form, setForm] = useState('');
 
     
-    useEffect(() => {
+    // useEffect(() => {
 
+    //     setForm(currentComment)
+
+
+    // })
+    // const handleChange = (event) => {
+    //     setForm({
+    //         ...form,
+    //         [event.target.id]: event.target.value,
+    //     });
+    // };
+
+    // const onSubmit = async (e) => {
+
+    //     e.preventDefault();
+    //    console.log(form)
+
+    // };
+
+    //console.log(location.state)
+
+
+    const { token, username } = useContext(AuthContext)
+    
+   
+    const [form, setForm] = React.useState({
+        currentComment: ''
+    });
+    
+    
+    useEffect( () => {
         setForm(currentComment)
+    }, [])
 
-
-    })
     const handleChange = (event) => {
-        setForm({
-            ...form,
-            [event.target.id]: event.target.value,
-        });
+        setForm(
+           
+             event.target.value,
+        );
     };
+
+    
+
 
     const onSubmit = async (e) => {
 
         e.preventDefault();
-       console.log(form)
-
+        
+        console.log(form)
     };
 
 
-    //console.log(location.state)
     return (
         <section >
             <form method="post" style={{ margin: "90px 0", paddingLeft: "550px", display: "yable-row" }}  onSubmit={onSubmit}>
@@ -45,8 +76,9 @@ export const EditComment = () => {
                         id="story"
                         name="story"
                         className="textarea"
-                        value={currentComment}
+                        defaultValue={currentComment}
                         onChange={handleChange}
+                        
                     ></textarea>
                     <input className="btn btn-primary btn-block py-3 mybtn" type="submit" value="Send" />
 
@@ -55,3 +87,4 @@ export const EditComment = () => {
         </section>
     );
 };
+
