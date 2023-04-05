@@ -15,8 +15,8 @@ export const Article = ({
                 <div className="position-relative">
                     <img className="img-fluid w-100" src={imageUrl} alt="fluid" />
                     <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
+                        {/* <h6 className="font-weight-bold mb-n1">Took a look</h6> */}
+                        <small className="text-white text-uppercase">Took a look</small>
                     </div>
                 </div>
                 <div className="bg-white p-4">
