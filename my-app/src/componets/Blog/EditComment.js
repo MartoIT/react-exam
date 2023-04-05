@@ -1,39 +1,17 @@
 import * as React from 'react';
 import {useState,  useEffect, useContext } from 'react';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/authContext";
+import { commentsServcicesFactory } from '../../services/comentsServices';
 
 
 export const EditComment = () => {
     const location = useLocation();
     const currentData = location.state;
     const currentComment = currentData.comment
-    // const { token, username } = useContext(AuthContext)
-    // const [form, setForm] = useState('');
-
-    
-    // useEffect(() => {
-
-    //     setForm(currentComment)
-
-
-    // })
-    // const handleChange = (event) => {
-    //     setForm({
-    //         ...form,
-    //         [event.target.id]: event.target.value,
-    //     });
-    // };
-
-    // const onSubmit = async (e) => {
-
-    //     e.preventDefault();
-    //    console.log(form)
-
-    // };
-
-    //console.log(location.state)
+    const navigate = useNavigate();
+    const commnetServices = commentsServcicesFactory();
 
 
     const { token, username } = useContext(AuthContext)
@@ -61,8 +39,10 @@ export const EditComment = () => {
     const onSubmit = async (e) => {
 
         e.preventDefault();
-        
-        console.log(form)
+        let data = currentData
+        currentData.comment = form;
+        const result = await commnetServices.edit(data, token )
+        navigate(-1)
     };
 
 

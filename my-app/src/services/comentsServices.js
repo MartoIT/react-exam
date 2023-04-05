@@ -46,10 +46,12 @@ export const commentsServcicesFactory = () => {
 
     const edit = async (data, token) => {
 
-       console.log(data)
+    
 
-        const comentId = data._id
+        const comentId = data._id;
+        
         const result = await request.put(`${baseUrl}/${comentId}`, data, token);
+        
     }
 
     return {
