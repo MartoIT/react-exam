@@ -28,6 +28,7 @@ import { commentsServcicesFactory } from './services/comentsServices';
 import { reviewServicessFactory } from './services/reviewServices';
 import { RouteGuard } from './common/RouteGuard';
 import { EditComment } from './componets/Blog/EditComment';
+import ScrollToTop from './common/ScrollToTop';
 
 
 
@@ -179,7 +180,9 @@ function App() {
       <NavBar />
 
       <main id="main">
+      <ScrollToTop />
         <Routes >
+       
           <Route path='/' element={<HomePage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
