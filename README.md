@@ -6,3 +6,5 @@ If you wish can create helpful and beautiful articles for the other participants
 Get ideas for the next adventure or romantic journeys.
 
 # Preview
+
+![Screenshot]('img/preview.png')
