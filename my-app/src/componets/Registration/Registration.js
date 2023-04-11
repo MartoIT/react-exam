@@ -28,16 +28,16 @@ export const Registration = () => {
         const matchImg = reImg.test(imageUrl);
 
         if(!matchImg){
-            return alert('invalid URL')
+            return alert('invalid URL');
         }
 
         
-        const reEmail = new RegExp(/^\S+@\S+\.\S+$/);
-        const matchEmail = reEmail.test(email);
+        // const reEmail = new RegExp(/^\w{3,}@\w{2,}\.\w{2,}+$/);
+        // const matchEmail = reEmail.test(email);
 
-        if(!matchEmail){
-            return alert('something not right in email, please check :)')
-        }
+        // if(!matchEmail){
+        //     return alert('something not right in email, please check :)')
+        // }
         if(password === '' || rePass === ''){
             return alert('All fileds are required!')
         }
