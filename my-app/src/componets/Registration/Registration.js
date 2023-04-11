@@ -1,4 +1,4 @@
-import {  useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
@@ -9,13 +9,57 @@ export const Registration = () => {
 
         e.preventDefault();
 
+        const username = e.target.username.value;
+        const age = e.target.age.value;
+        const imageUrl = e.target.imageUrl.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const rePass = e.target.rePass.value;
+
+        if (username.length < 3) {
+            return alert('username must be at least 3 characters');
+        }
+
+        if (age <= 0) {
+            return alert('age should be positive number')
+        }
+
+        const reImg = new RegExp(/^https?:\/\/(.*)/gm);
+        const matchImg = reImg.test(imageUrl);
+
+        if(!matchImg){
+            return alert('invalid URL')
+        }
+
+        
+        const reEmail = new RegExp(/^\S+@\S+\.\S+$/);
+        const matchEmail = reEmail.test(email);
+
+        if(!matchEmail){
+            return alert('something not right in email, please check :)')
+        }
+        if(password === '' || rePass === ''){
+            return alert('All fileds are required!')
+        }
+        if (password !==  rePass) {
+            return alert('Pasword donse\'t match!')
+        }
+
+        const rePassword = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/);
+        const matchPass = rePassword.test(password);
+        if(!matchPass){
+            return alert('Password should be between 6 to 20 characters which contains at least one numeric digit, one uppercase, and one lowercase letter')
+        }
+
+
+
         const data = {
-            username: e.target.username.value,
-            age: e.target.age.value,
-            imageUrl: e.target.imageUrl.value,
-            email: e.target.email.value,
-            password: e.target.password.value,
-            rePass: e.target.rePass.value,
+            username,
+            age,
+            imageUrl,
+            email,
+            password,
+            rePass
         };
         onRegisterSubmit(data)
 
@@ -54,7 +98,7 @@ export const Registration = () => {
                                     </div>
                                     <div className="form-group">
                                         <input type="text" className="form-control p-4" required="required" src="sdasda" alt="Submit" width="100" height="100" name="imageUrl" placeholder="Avatar link here..." />
-                                        
+
                                     </div>
                                     <div className="form-group">
                                         <input type="email" className="form-control p-4" placeholder="Email" name="email" required="required" />
