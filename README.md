@@ -1,9 +1,11 @@
 
 # Description
-React app for travellers and  enthusiast.
-You can find great blog articles where you can comment and ask questions about destination.
-If you wish can create helpful and beautiful articles for the other participants.
-Get ideas for the next adventure or romantic journeys.
+### React app for travellers and  enthusiast.
+- Here you can find great blog articles.
+- You can comment and ask questions about destinations.
+- If wish you can contribute with you stories
+- On our site you can create helpful and beautiful articles for the other participants.
+- Mostly get ideas for the next adventure or romantic journeys.
 
 # To start the app 
 In the project directory
