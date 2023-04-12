@@ -24,7 +24,7 @@ Create a new user by fill all the fields
     - prefix
     - @
     - domain
-    - dot after domain at least 2 characters after it
+    - dot after domain and at least 2 characters after
 5. Password
     - Password should be between 6 to 20 characters
     - contains at least one numeric digit
@@ -49,6 +49,12 @@ After logout authorization token will be deleted and session will be eliminated,
 # Preview App
 
 ![Screenshot](/resources/img/preview.png)
+
+# Under the hood
+### The mighty requester
+![Screenshot](/resources/img/requester.png)
+### Create article by using requester above
+![Screenshot](/resources/img/addNewPost.png)
 
 # Server
 App Server-side is heavily based on: softuni practice server.
