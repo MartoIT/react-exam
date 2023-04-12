@@ -55,6 +55,9 @@ After logout authorization token will be deleted and session will be eliminated,
 ![Screenshot](/resources/img/requester.png)
 ### Create article by using requester above
 ![Screenshot](/resources/img/addNewPost.png)
+### Part of user registration validation code...
+![Screenshot](/resources/img/register.png)
+
 
 # Server
 App Server-side is heavily based on: softuni practice server.
