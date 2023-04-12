@@ -7,4 +7,4 @@ Get ideas for the next adventure or romantic journeys.
 
 # Preview
 
-![Screenshot](img/preview.png)
+![Screenshot](/resources/img/preview.png)
