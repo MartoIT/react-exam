@@ -10,6 +10,6 @@ Get ideas for the next adventure or romantic journeys.
 ![Screenshot](/resources/img/preview.png)
 
 # Server
-App is using softuni practice server.
+App Server-side is heavily based on: softuni practice server.
 [Copyright here](https://github.com/softuni-practice-server/softuni-practice-server#softuni-practice-server)
 
