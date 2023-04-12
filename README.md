@@ -5,6 +5,12 @@ You can find great blog articles where you can comment and ask questions about d
 If you wish can create helpful and beautiful articles for the other participants.
 Get ideas for the next adventure or romantic journeys.
 
+# To start the app 
+In the project directory
+### npm start
+In server directory
+### node server.js
+
 # Authentication
 
 ## Register
@@ -24,7 +30,8 @@ Create a new user by fill all the fields
 ## Login
 1. Email address
 2. Password
-
+## Logout
+After logout authorization token will be deleted and session will be eliminated, the user is redirected to home page.
 # Preview
 
 ![Screenshot](/resources/img/preview.png)
