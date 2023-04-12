@@ -8,3 +8,8 @@ Get ideas for the next adventure or romantic journeys.
 # Preview
 
 ![Screenshot](/resources/img/preview.png)
+
+# Server
+App is using softuni practice server.
+[Copyright here](https://github.com/softuni-practice-server/softuni-practice-server#softuni-practice-server)
+
