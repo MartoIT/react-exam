@@ -19,12 +19,12 @@ In server directory
 Create a new user by fill all the fields
 1. Username must be at least 3 characters
 2. Age should be positive number
-3. Add image url for your account, the url should begin with http:// or https://
+3. Add avatar image by paste url, the url path should begin with http:// or https://
 4. To be considered a valid email address should have follow requirements
     - prefix
     - @
     - domain
-    - at least 2 characters after dot
+    - dot after domain at least 2 characters after it
 5. Password
     - Password should be between 6 to 20 characters
     - contains at least one numeric digit
@@ -34,7 +34,19 @@ Create a new user by fill all the fields
 2. Password
 ## Logout
 After logout authorization token will be deleted and session will be eliminated, the user is redirected to home page.
-# Preview
+
+# Blog posts
+### You can see all blog posts by navigate to blog page
+    - Read articles
+### If you are authenticated user
+    - write articles
+    - or leave comment if you wish
+
+# Leave us a review
+### Navigate to other about us
+    - use stars rating system and leave a review
+
+# Preview App
 
 ![Screenshot](/resources/img/preview.png)
 
