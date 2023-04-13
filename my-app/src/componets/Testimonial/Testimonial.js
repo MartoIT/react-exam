@@ -36,9 +36,13 @@ export const Testimonial = () => {
                 setReview(result)
             });
 
-        let review2 = e.target.review;
-        review2.value = '';
-
+         e.target.review.value = ''
+         window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+       
     }
     return (
 
