@@ -112,12 +112,12 @@ function App() {
   }
 
   const onPostSubmit = async (data, token) => {
-    await articleServices.addNewPost(data, token);
+    const newPost =  await articleServices.addNewPost(data, token);
     articleServices.getAll()
       .then(result => {
         setArticle(result)
       })
-
+   
     navigate('/blog');
 
   }

@@ -1,15 +1,36 @@
+import { useEffect } from 'react';
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 
 export const Footer = () => {
 
  
     const onSubmit = (e) => {
         e.preventDefault();
-        alert(`Thank you for the email \n We will be in touch with you`);
+        const email = e.target.send.value
+        
+        const reEmail = new RegExp(/^\S+@\S+\.\w{2,}$/);
+        const matchEmail = reEmail.test(email);
+
+        if(!matchEmail){
+             alert('Something not right with your email, please check :)')
+        }
+        if(matchEmail){
+            alert(`Thank you for the email \n We will be in touch with you`);
+            e.target.send.value = '';
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });
+        }
+        
        
     }
+   
     return (
+        
             <>
 
                 <div className="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style={{ marginTop: "90px" }}>
